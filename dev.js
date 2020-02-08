@@ -1,4 +1,9 @@
-const { extractCode } = require('./index')
+import Odd  from './src/index'
+
+const odd = new Odd({
+	input: `example`,
+	output: `dist`,
+})
 
 const sample = `
 	This is a test
@@ -27,5 +32,5 @@ const sample = `
 `
 
 console.log(
-	JSON.stringify(extractCode(sample), null, 3)
+	JSON.stringify(odd.processFile(`example.md`), null, 3)
 )

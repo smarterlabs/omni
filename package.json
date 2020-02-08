@@ -4,13 +4,19 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "node dev"
+    "dev": "babel-node dev"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@smarterlabs/babel-preset": "^1.0.8",
+    "@smarterlabs/eslint-config": "^1.0.7",
     "markdown-it": "^10.0.0"
   },
   "dependencies": {
     "extract-gfm": "^0.1.0",
-    "gfm-code-block-regex": "^1.0.0"
+    "fs-extra": "^8.1.0",
+    "gfm-code-block-regex": "^1.0.0",
+    "replace-ext": "^1.0.0"
   }
 }

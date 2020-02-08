@@ -12,10 +12,10 @@ function parseDirectives(arr){
 	const type = directives.shift()
 
 	directives = directives.map(str => {
-		const [directive, ...arguments] = str.split(`:`)
+		const [directive, ...args] = str.split(`:`)
 		return {
 			directive,
-			arguments,
+			arguments: args,
 		}
 	})
 
@@ -25,13 +25,13 @@ function parseDirectives(arr){
 	}
 }
 
-exports.extractCode = str => {
+export default function extractCode(str) {
 	const arr = str.split('```')
 	const blocks = []
 	arr.shift()
-	for(let block of arr){
+	for (let block of arr) {
 		// If it's a marked code block
-		if (isLetter(block.charAt(0))){
+		if (isLetter(block.charAt(0))) {
 			const arr = block.split(/(?<=)\n/)
 			const { type, directives } = parseDirectives(arr)
 			const code = arr.join(`\n`).trim()
