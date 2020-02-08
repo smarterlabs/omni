@@ -1,28 +1,39 @@
 import extractCode from './extract-code'
+import exportFiles from './export-files'
 import { join } from 'path'
-import { readFile, outputFile } from 'fs-extra'
-import replaceExt from 'replace-ext'
+import { readFile } from 'fs-extra'
 
 export default class Odd{
 	constructor(config){
 		this.config = {
 			input: `./`,
 			output: `./dist`,
+			plugins: [],
 			...config,
 		}
+		this.config.plugins.unshift(...[
+			extractCode(),
+			exportFiles(),
+		])
 	}
 	async processFile(path){
 		const loc = join(this.config.input, path)
 		let contents = await readFile(loc)
 		contents = contents.toString()
-		const parsed = extractCode(contents)
-		const promises = []
-		for(let obj of parsed){
-			let outputPath = join(this.config.output, path)
-			outputPath = replaceExt(outputPath, `.${obj.type}`)
-			promises.push(outputFile(outputPath, obj.code))
+
+		let data = {
+			contents,
+			files: {},
+			config: this.config,
+			path,
 		}
-		await Promise.all(promises)
-		console.log(JSON.stringify(parsed, null, 3))
+
+		for(let plugin of this.config.plugins){
+			let newData = await plugin(data)
+			if(newData){
+				data = newData
+			}
+		}
+
 	}
 }

@@ -3,21 +3,19 @@ function isLetter(str) {
 }
 
 function parseDirectives(arr){
-	let directives = arr
+	arr = arr
 		.shift()
 		.trim()
 		.split(/\s+/)
 		.map(str => str.trim())
 
-	const type = directives.shift()
+	const type = arr.shift()
+	const directives = {}
 
-	directives = directives.map(str => {
+	for (let str of arr) {
 		const [directive, ...args] = str.split(`:`)
-		return {
-			directive,
-			arguments: args,
-		}
-	})
+		directives[directive] = args
+	}
 
 	return {
 		type,
@@ -25,23 +23,26 @@ function parseDirectives(arr){
 	}
 }
 
-export default function extractCode(str) {
-	const arr = str.split('```')
-	const blocks = []
-	arr.shift()
-	for (let block of arr) {
-		// If it's a marked code block
-		if (isLetter(block.charAt(0))) {
-			const arr = block.split(/(?<=)\n/)
-			const { type, directives } = parseDirectives(arr)
-			const code = arr.join(`\n`).trim()
-			blocks.push({
-				code,
-				type,
-				directives,
-				original: block,
-			})
+export default function extractCode() {
+	return data => {
+		const arr = data.contents.split('```')
+		const blocks = []
+		arr.shift()
+		for (let block of arr) {
+			// If it's a marked code block
+			if (isLetter(block.charAt(0))) {
+				const arr = block.split(/(?<=)\n/)
+				const { type, directives } = parseDirectives(arr)
+				const code = arr.join(`\n`).trim()
+				blocks.push({
+					code,
+					type,
+					directives,
+					original: block,
+				})
+			}
 		}
+		data.blocks = blocks
+		return data
 	}
-	return blocks
 }

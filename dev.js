@@ -3,34 +3,15 @@ import Odd  from './src/index'
 const odd = new Odd({
 	input: `example`,
 	output: `dist`,
+	plugins: [
+		consoleLog(),
+	],
 })
 
-const sample = `
-	This is a test
+function consoleLog(options){
+	return function (data) {
+		console.log(JSON.stringify(data, null, 3))
+	}
+}
 
-	# Test Title
-
-	\`\`\`js bundle:scripts
-	const test = 0;
-	console.log(test);
-	\`\`\`
-
-	This is some more markdown!
-
-	\`\`\`html
-	<div>This is some test html.</div>
-	\`\`\`
-
-	More markdown
-
-	\`\`\`
-	Unmarked code block
-	\`\`\`
-
-	End of file.
-
-`
-
-console.log(
-	JSON.stringify(odd.processFile(`example.md`), null, 3)
-)
+odd.processFile(`example.md`)
