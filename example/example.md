@@ -37,6 +37,12 @@ const test = true
 console.log(test)
 ```
 
+## bundle directive
+
+```js bundle
+console.log(`This should appear in bundle.js`)
+```
+
 
 ## All directives
 
