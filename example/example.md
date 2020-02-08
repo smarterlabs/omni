@@ -1,8 +1,3 @@
----
-shared:
-  title: "Omni Directional Development"
----
-
 # Example Omni-directional document!
 
 Markdown content is not processed and all unless otherwise specified. It can be used for easily documenting code.
@@ -10,16 +5,21 @@ Markdown content is not processed and all unless otherwise specified. It can be 
 The yaml frontmatter block above can contain instructions on how the file should run, or contain variables that get transpiled into the code blocks below.
 
 
-## on:build directive
+## config directive
+
+```yaml config
+shared:
+  title: "Omni Directional Development"
+```
+
+## run directive
 
 Export function will run on build. Any values saved in the _shared variable will prepended to other code blocks.
 
-```es6 on:start
-export default function changeFoo(){
-  const title = _shared.title
-  console.log(title) // Logs "Omni Driven Development"
-  _shared.pageTitle = `This is my website: ${title}`
-}
+```es6 run
+const title = _shared.title
+console.log(title) // Logs "Omni Driven Development"
+_shared.pageTitle = `This is my website: ${title}`
 ```
 
 
@@ -42,6 +42,12 @@ console.log(test)
 ```js bundle
 console.log(`This should appear in bundle.js`)
 ```
+
+## Phases of plugins
+
+- onInput
+- onParse
+- onOutput
 
 
 ## All directives

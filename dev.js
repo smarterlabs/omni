@@ -4,7 +4,7 @@ const odd = new Odd({
 	input: `example`,
 	output: `dist`,
 	plugins: [
-		consoleLog(),
+		// consoleLog(),
 	],
 })
 

@@ -1,5 +1,6 @@
 import extractCode from './extract-code'
 import exportFiles from './export-files'
+import runBlocks from './run-blocks'
 import { join } from 'path'
 import { readFile } from 'fs-extra'
 
@@ -13,6 +14,7 @@ export default class Odd{
 		}
 		this.config.plugins.unshift(...[
 			extractCode(),
+			runBlocks(),
 			exportFiles(),
 		])
 	}
@@ -23,9 +25,9 @@ export default class Odd{
 
 		let data = {
 			contents,
-			files: {},
 			config: this.config,
 			path,
+			_shared: {},
 		}
 
 		for(let plugin of this.config.plugins){

@@ -9,9 +9,10 @@ export default function exportFiles() {
 
 
 		for (let obj of data.blocks) {
-			if(obj.directives.ignore) continue
+			const dirs = obj.directives
+			if (dirs.ignore || dirs.run) continue
 
-			if(obj.directives.bundle){
+			if(dirs.bundle){
 				let path = obj.directives.bundle[0] || `bundle.${obj.type}`
 				if(!(path in bundles)){
 					bundles[path] = []
