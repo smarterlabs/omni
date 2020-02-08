@@ -1,29 +1,3 @@
-const sample = `
-	This is a test
-
-	# Test Title
-
-	\`\`\`js bundle:scripts
-	const test = 0;
-	console.log(test);
-	\`\`\`
-
-	This is some more markdown!
-
-	\`\`\`html
-	<div>This is some test html.</div>
-	\`\`\`
-
-	More markdown
-
-	\`\`\`
-	Unmarked code block
-	\`\`\`
-
-	End of file.
-
-`
-
 function isLetter(str) {
 	return str.length === 1 && str.match(/[a-z]/i);
 }
@@ -51,7 +25,7 @@ function parseDirectives(arr){
 	}
 }
 
-function extractCode(str){
+exports.extractCode = str => {
 	const arr = str.split('```')
 	const blocks = []
 	arr.shift()
@@ -71,7 +45,3 @@ function extractCode(str){
 	}
 	return blocks
 }
-
-console.log(
-	JSON.stringify(extractCode(sample), null, 3)
-)

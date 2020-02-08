@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "node index"
+    "dev": "node dev"
   },
   "devDependencies": {
     "markdown-it": "^10.0.0"
