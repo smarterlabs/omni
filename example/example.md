@@ -7,9 +7,10 @@ The yaml frontmatter block above can contain instructions on how the file should
 
 ## config directive
 
-```yaml config
-shared:
-  title: "Omni Directional Development"
+```json config
+{
+  "title": "Omni Directional Document"
+}
 ```
 
 ## run directive
@@ -17,9 +18,8 @@ shared:
 Export function will run on build. Any values saved in the _shared variable will prepended to other code blocks.
 
 ```es6 run
-const title = _shared.title
-console.log(title) // Logs "Omni Driven Development"
-_shared.pageTitle = `This is my website: ${title}`
+console.log(_shared.title) // Logs "Omni Directional Document"
+_shared.pageTitle = `This is my website: ${_shared.title}`
 ```
 
 

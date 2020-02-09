@@ -1,6 +1,7 @@
 import extractCode from './extract-code'
 import exportFiles from './export-files'
-import runBlocks from './run-blocks'
+import runJavascript from './run-javascript'
+import runJSON from './run-json'
 import { join } from 'path'
 import { readFile } from 'fs-extra'
 
@@ -14,7 +15,8 @@ export default class Odd{
 		}
 		this.config.plugins.unshift(...[
 			extractCode(),
-			runBlocks(),
+			runJSON(),
+			runJavascript(),
 			exportFiles(),
 		])
 	}
