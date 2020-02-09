@@ -1,19 +1,19 @@
 import deepmerge from 'deepmerge'
 
 export default function runJSON() {
-	return async data => {
-		for (let obj of data.blocks) {
+	return async omni => {
+		omni.addEventListener(`parseBlock`, async (block, data) => {
 			const {
 				type,
 				code,
-				directives: { run, config }
-			} = obj
+				directives: { run, config },
+			} = block
 			if ((run || config) && type === `json`) {
 				const obj = JSON.parse(code)
 				if (obj._shared) {
 					data._shared = deepmerge(data._shared, obj._shared)
 				}
 			}
-		}
+		})
 	}
 }

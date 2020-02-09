@@ -1,24 +1,30 @@
 {
-  "name": "@smarterlabs/odd-core",
+  "name": "@smarterlabs/omni",
   "version": "1.0.0",
+  "private": true,
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "babel-node dev"
+    "dev": "npx lerna run dev --stream --no-sort --concurrency 999"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/node": "^7.8.4",
-    "@smarterlabs/babel-preset": "^1.0.8",
-    "@smarterlabs/eslint-config": "^1.0.7",
-    "markdown-it": "^10.0.0"
-  },
-  "dependencies": {
-    "deepmerge": "^4.2.2",
-    "extract-gfm": "^0.1.0",
-    "fs-extra": "^8.1.0",
-    "gfm-code-block-regex": "^1.0.0",
-    "node-eval": "^2.0.0",
-    "replace-ext": "^1.0.0"
+    "eslint": "^6.1.0",
+    "husky": "^3.0.3",
+    "lerna": "^3.20.2",
+    "lint-staged": "^9.2.1"
   }
 }

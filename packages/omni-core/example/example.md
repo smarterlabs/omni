@@ -12,14 +12,22 @@ Export function will run on build. Any values saved in the _shared variable will
 ```json run
 {
   "_shared": {
-    "title": "Omni Directional Document"
+    "title": "Omni Directional Documents"
   }
 }
 ```
 
+or:
+
+```yaml run
+_shared:
+  title: Omni Directional Documents
+```
+
+could be interpolated to:
 
 ```es6 run
-console.log(_shared.title) // Logs "Omni Directional Document"
+console.log(_shared.title) // Logs "Omni Directional Documents"
 _shared.pageTitle = `This is my website: ${_shared.title}`
 ```
 

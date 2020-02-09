@@ -8,10 +8,10 @@ const odd = new Odd({
 	],
 })
 
-function consoleLog(options){
-	return function (data) {
-		console.log(JSON.stringify(data, null, 3))
-	}
-}
+// function consoleLog(options){
+// 	return function (data) {
+// 		console.log(JSON.stringify(data, null, 3))
+// 	}
+// }
 
 odd.processFile(`example.md`)
