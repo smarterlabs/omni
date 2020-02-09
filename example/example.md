@@ -28,13 +28,13 @@ _shared.pageTitle = `This is my website: ${_shared.title}`
 
 Blocks with the export directive will be exported into a seperate file after being processed by any other plugins.
 
+```js export:scripts
+document.querySelector('h1').textContent = _shared.pageTitle
+```
+
 ```html export
 <h1></h1>
 <script src='scripts.js'></script>
-```
-
-```js export:scripts
-document.querySelector('h1').textContent = _shared.pageTitle
 ```
 
 By default, the filename will use the filename of the file its in and just change the extension to match the code type. But you can route the code to another file with a `:` argument.
@@ -105,7 +105,6 @@ console.log(`This should appear in bundle.js`)
 
 - Sass
 - Liquid
-- JavaScript
 
 ## Packages
 
