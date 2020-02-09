@@ -1,6 +1,7 @@
 import extractCode from './extract-code'
 import exportFiles from './export-files'
 import runJavascript from './run-javascript'
+import interpolateJavascript from './interpolate-javascript'
 import runJSON from './run-json'
 import { join } from 'path'
 import { readFile } from 'fs-extra'
@@ -17,6 +18,7 @@ export default class Odd{
 			extractCode(),
 			runJSON(),
 			runJavascript(),
+			interpolateJavascript(),
 			exportFiles(),
 		])
 	}

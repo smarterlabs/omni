@@ -4,18 +4,19 @@ Markdown content is not processed and all unless otherwise specified. It can be 
 
 The yaml frontmatter block above can contain instructions on how the file should run, or contain variables that get transpiled into the code blocks below.
 
-
-## config directive
-
-```json config
-{
-  "title": "Omni Directional Document"
-}
-```
-
 ## run directive
 
 Export function will run on build. Any values saved in the _shared variable will prepended to other code blocks.
+
+
+```json run
+{
+  "_shared": {
+    "title": "Omni Directional Document"
+  }
+}
+```
+
 
 ```es6 run
 console.log(_shared.title) // Logs "Omni Directional Document"
@@ -23,18 +24,23 @@ _shared.pageTitle = `This is my website: ${_shared.title}`
 ```
 
 
-```html
-<h1>{_shared.pageTitle}</h1>
+## export directive
+
+Blocks with the export directive will be exported into a seperate file after being processed by any other plugins.
+
+```html export
+<h1></h1>
+<script src='scripts.js'></script>
 ```
 
-## ignore directive
+```js export:scripts
+document.querySelector('h1').textContent = _shared.pageTitle
+```
 
-If you're using code blocks in your markdown, you'll probably want some of your code blocks to be ignored.
+By default, the filename will use the filename of the file its in and just change the extension to match the code type. But you can route the code to another file with a `:` argument.
 
-```js ignore
-// This .js block will not be transpiled or executed and will stay in the generated .md file
-const test = true
-console.log(test)
+```html export:about
+<h2>This is the About Us page</h2>
 ```
 
 ## bundle directive
@@ -46,8 +52,12 @@ console.log(`This should appear in bundle.js`)
 ## Phases of plugins
 
 - onInput
+  - Read files
 - onParse
+  - Run files
+  - Parse files
 - onOutput
+  - Write files
 
 
 ## All directives

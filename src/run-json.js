@@ -10,7 +10,9 @@ export default function runJSON() {
 			} = obj
 			if ((run || config) && type === `json`) {
 				const obj = JSON.parse(code)
-				data._shared = deepmerge(data._shared, obj)
+				if (obj._shared) {
+					data._shared = deepmerge(data._shared, obj._shared)
+				}
 			}
 		}
 	}
