@@ -1,3 +1,5 @@
+import glob from 'globby'
+import { join } from 'path'
 import extractCode from './extract-code'
 import exportFiles from './export-files'
 import runJavascript from './run-javascript'
@@ -7,7 +9,12 @@ import runJSON from './run-json'
 
 function bindThis($this, arr){
 	for(let prop of arr){
-		$this[prop] = $this[prop].bind($this)
+		if (typeof prop === `string`) {
+			$this[prop] = $this[prop].bind($this)
+		}
+		else{
+			$this[prop] = prop.bind($this)
+		}
 	}
 }
 
@@ -17,6 +24,7 @@ export default class Odd{
 			input: `./`,
 			output: `./dist`,
 			plugins: [],
+			fileTypes: [`md`, `omni`, `odd`, `od`],
 			...config,
 		}
 		this.eventListeners = {}
@@ -26,9 +34,9 @@ export default class Odd{
 			`removeEventListener`,
 			`triggerEvents`,
 		])
+		this.on = this.addEventListener
+		this.off = this.removeEventListener
 
-
-		this.on = this.addEventListener.bind(this)
 		this.config.plugins.unshift(...[
 			readFiles(),
 			extractCode(),
@@ -103,5 +111,19 @@ export default class Odd{
 		await trigger(`exportFile`, data)
 
 	}
-
+	async processDirectory(subdir){
+		let {
+			input,
+			fileTypes,
+		} = this.config
+		if (subdir){
+			input = join(input, subdir)
+		}
+		const inputGlob = join(input, `**/*.{${fileTypes.join(`,`)}}`)
+		const files = await glob(inputGlob)
+		for(let file of files){
+			const path = file.replace(input, ``)
+			await this.processFile(path)
+		}
+	}
 }

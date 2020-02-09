@@ -14,4 +14,4 @@ const odd = new Odd({
 // 	}
 // }
 
-odd.processFile(`example.md`)
+odd.processDirectory()
