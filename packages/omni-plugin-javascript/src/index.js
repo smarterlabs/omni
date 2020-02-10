@@ -6,6 +6,7 @@ function isJS(type){
 export default function javascriptPlugin(options) {
 	options = {
 		declaration: `var`,
+		wrap: false,
 		...options,
 	}
 	return async omni => {
@@ -16,7 +17,13 @@ export default function javascriptPlugin(options) {
 			} = block
 			if (!dirs.export) return
 			if (!isJS(type)) return
-			block.code = `${options.declaration} _shared = ${JSON.stringify(data._shared)};\n\n${block.code}`
+			let dec = dirs.declaration ? dirs.declaration[0] : options.declaration
+			if (dirs.wrap || options.wrap) {
+				block.code = `;!function(_shared){\n${block.code}}(${JSON.stringify(data._shared)}\n);`
+			}
+			else {
+				block.code = `${dec} _shared = ${JSON.stringify(data._shared)};\n\n${block.code}`
+			}
 		})
 		omni.on(`parseBlock`, async (block, data) => {
 			const {
