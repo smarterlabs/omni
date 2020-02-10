@@ -31,10 +31,10 @@ console.log(_shared.title) // Logs "Omni Directional Documents"
 _shared.pageTitle = `This is my website: ${_shared.title}`
 ```
 
-or:
+then maybe:
 
 ```php run
-print_r($_shared);
+print_r($_shared); // The pageTitle variable we set in the ES6 block above is printed to the console
 ```
 
 

@@ -19,7 +19,12 @@ export default function phpPlugin(options) {
 			if(dirs.interpolate && dirs.interpolate[0] === false) return
 			let str = JSON.stringify(data._shared)
 			str = str.replace(/"/g, `\\"`)
-			block.code = `$_shared = json_decode("${str}", true);\n\n${block.code}`
+			block.code = [
+				`$_shared = json_decode("${str}", true);`,
+				block.code,
+				`print "\n";`,
+				`print json_encode($_shared);`,
+			].join(`\n\n`)
 			if(dirs.wrap){
 				block.code = `<?php\n\n${block.code}\n\n?>`
 			}
@@ -46,8 +51,6 @@ export default function phpPlugin(options) {
 				directives: { run },
 			} = block
 
-			console.log(run, type)
-
 			if (run && type === `php`) {
 
 
@@ -58,8 +61,24 @@ export default function phpPlugin(options) {
 				outputPath = replaceExt(outputPath, `.php.tmp`)
 				await outputFile(outputPath, block.code)
 
-				const res = await execShellCommand(`php "${outputPath}"`)
-				console.log(res)
+				let res
+				try {
+					res = await execShellCommand(`php "${outputPath}"`)
+					console.log(`res`, res)
+				}
+				catch(err){
+					console.error(err)
+				}
+				try {
+					const userRes = res.trim().split(/\n/g)
+					const shared = userRes.pop()
+					data._shared = JSON.parse(shared)
+					res = userRes.join(`\n`)
+				}
+				catch(err){
+					console.log(err)
+					console.log(`Can't read PHP output, ignoring`)
+				}
 
 				await remove(outputPath)
 			}
