@@ -31,6 +31,12 @@ console.log(_shared.title) // Logs "Omni Directional Documents"
 _shared.pageTitle = `This is my website: ${_shared.title}`
 ```
 
+or:
+
+```php run
+print_r($_shared);
+```
+
 
 ## export directive
 

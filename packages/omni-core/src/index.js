@@ -1,6 +1,7 @@
 import glob from 'globby'
 import { join } from 'path'
 import javascriptPlugin from '@smarterlabs/omni-plugin-javascript'
+import phpPlugin from '@smarterlabs/omni-plugin-php'
 import extractCode from './extract-code'
 import exportFiles from './export-files'
 import readFiles from './read-files'
@@ -45,6 +46,7 @@ export default class Odd{
 
 			runJSON(),
 			javascriptPlugin(),
+			phpPlugin(),
 
 			exportFiles(),
 		])

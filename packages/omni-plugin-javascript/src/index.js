@@ -15,8 +15,8 @@ export default function javascriptPlugin(options) {
 				directives: dirs,
 				type,
 			} = block
-			if (!dirs.export) return
 			if (!isJS(type)) return
+			if (dirs.interpolate && dirs.interpolate[0] === false) return
 			let dec = dirs.declaration ? dirs.declaration[0] : options.declaration
 			if (dirs.wrap || options.wrap) {
 				block.code = `;!function(_shared){\n${block.code}}(${JSON.stringify(data._shared)}\n);`
