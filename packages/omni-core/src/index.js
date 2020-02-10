@@ -1,10 +1,9 @@
 import glob from 'globby'
 import { join } from 'path'
+import javascriptPlugin from '@smarterlabs/omni-plugin-javascript'
 import extractCode from './extract-code'
 import exportFiles from './export-files'
-import runJavascript from './run-javascript'
 import readFiles from './read-files'
-import interpolateJavascript from './interpolate-javascript'
 import runJSON from './run-json'
 
 function bindThis($this, arr){
@@ -45,8 +44,7 @@ export default class Odd{
 			extractCode(),
 
 			runJSON(),
-			runJavascript(),
-			interpolateJavascript(),
+			javascriptPlugin(),
 
 			exportFiles(),
 		])

@@ -5,7 +5,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "npx lerna run dev --stream --no-sort --concurrency 999"
+    "build": "lerna run build --stream",
+    "dev": "lerna run dev --stream --no-sort --concurrency 999"
   },
   "husky": {
     "hooks": {
