@@ -1,4 +1,3 @@
-
 export default function interpolateJavascript() {
 	return async omni => {
 		omni.on(`parseBlock`, async (block, data) => {

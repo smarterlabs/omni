@@ -21,10 +21,13 @@ function bindThis($this, arr){
 export default class Odd{
 	constructor(config){
 		this.config = {
+
+			// Default settings
 			input: `./`,
 			output: `./dist`,
 			plugins: [],
 			fileTypes: [`md`, `omni`, `odd`, `od`],
+
 			...config,
 		}
 		this.eventListeners = {}
@@ -40,9 +43,11 @@ export default class Odd{
 		this.config.plugins.unshift(...[
 			readFiles(),
 			extractCode(),
+
 			runJSON(),
 			runJavascript(),
 			interpolateJavascript(),
+
 			exportFiles(),
 		])
 

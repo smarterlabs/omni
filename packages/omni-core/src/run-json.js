@@ -2,7 +2,7 @@ import deepmerge from 'deepmerge'
 
 export default function runJSON() {
 	return async omni => {
-		omni.addEventListener(`parseBlock`, async (block, data) => {
+		omni.on(`parseBlock`, async (block, data) => {
 			const {
 				type,
 				code,

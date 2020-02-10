@@ -1,6 +1,6 @@
 export default function runJavascript() {
 	return async omni => {
-		omni.addEventListener(`parseBlock`, async (block, data) => {
+		omni.on(`parseBlock`, async (block, data) => {
 			const {
 				type,
 				code,

@@ -57,15 +57,12 @@ By default, the filename will use the filename of the file its in and just chang
 console.log(`This should appear in bundle.js`)
 ```
 
-## Phases of plugins
+## Plugin Types
 
-- onInput
-  - Read files
-- onParse
-  - Run files
-  - Parse files
-- onOutput
-  - Write files
+- runners (example: omni-plugin-run-javascript)
+  - Enables running scripts directly in omni files during file processing
+- interpolators (example: omni-plugin-interpolate-javascript)
+  - Enables the sharing of variables between scripts
 
 
 ## All directives
