@@ -7,13 +7,13 @@ export default function exportFiles() {
 		omni.addEventListener(`exportFile`, async data => {
 			const promises = []
 
-			for (let obj of data.blocks) {
-				const dirs = obj.directives
+			for (let block of data.blocks) {
+				const dirs = block.directives
 				if (!dirs.export) continue
 
 				let outputPath = join(omni.config.output, dirs.export[0] || data.path)
-				outputPath = replaceExt(outputPath, `.${obj.type}`)
-				promises.push(outputFile(outputPath, obj.code))
+				outputPath = replaceExt(outputPath, `.${block.type}`)
+				promises.push(outputFile(outputPath, block.code))
 			}
 
 			await Promise.all(promises)

@@ -1,3 +1,8 @@
+function isJS(type){
+	if (type === `js` || type === `javascript` || type === `es6`) return true
+	return false
+}
+
 export default function javascriptPlugin() {
 	return async omni => {
 		omni.on(`parseBlock`, async (block, data) => {
@@ -6,8 +11,8 @@ export default function javascriptPlugin() {
 				type,
 			} = block
 			if (!dirs.export) return
-			if (type !== `js` && type !== `javascript` && type !== `es6`) return
-			block.code = `;!function(_shared){${block.code}}(${JSON.stringify(data._shared)});`
+			if (!isJS(type)) return
+			block.code = `;!function(_shared){\n${block.code}}(${JSON.stringify(data._shared)}\n);`
 		})
 		omni.on(`parseBlock`, async (block, data) => {
 			const {
@@ -16,7 +21,7 @@ export default function javascriptPlugin() {
 				directives: { run },
 			} = block
 
-			if (run && (type === `js` || type === `javascript` || type === `es6`)) {
+			if (run && isJS(type)) {
 				let fn = new Function(`_shared`, code)
 				await fn(data._shared)
 			}

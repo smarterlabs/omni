@@ -1,4 +1,4 @@
-import Odd  from './src/index'
+import Odd  from '@smarterlabs/omni-core'
 
 const odd = new Odd({
 	input: `example`,
