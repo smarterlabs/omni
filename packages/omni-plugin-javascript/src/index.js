@@ -34,7 +34,12 @@ export default function javascriptPlugin(options) {
 
 			if (run && isJS(type)) {
 				let fn = new Function(`_shared`, code)
-				await fn(data._shared)
+				try {
+					await fn(data._shared)
+				}
+				catch(err){
+					console.error(err)
+				}
 			}
 		})
 	}
