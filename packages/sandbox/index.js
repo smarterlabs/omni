@@ -1,6 +1,6 @@
-import Odd  from '@smarterlabs/omni-core'
+import Omni  from '@smarterlabs/omni-core'
 
-const odd = new Odd({
+const omni = new Omni({
 	input: `example`,
 	output: `dist`,
 	plugins: [
@@ -14,4 +14,4 @@ const odd = new Odd({
 // 	}
 // }
 
-odd.processDirectory()
+omni.processDirectory()
