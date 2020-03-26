@@ -1,12 +1,10 @@
-```json config interpolate
-{
-  "_test_": "ABC"
-}
+```yaml config interpolate
+__scope: nav
 ```
 
 
 
 
 ```es6 run
-console.log(`_test_`)
+console.log(`__scope`)
 ```

@@ -1,11 +1,12 @@
 {
-  "name": "@smarterlabs/omni-sandbox",
+  "name": "@smarterlabs/omni-plugin-yaml",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "yarn run clean && babel-node index",
-    "clean": "del dist"
+    "build": "yarn run clean && babel src --out-dir dist",
+    "clean": "del dist",
+    "dev": "babel src --watch --out-dir dist"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -16,9 +17,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4",
-    "@smarterlabs/omni-core": "*",
-    "@smarterlabs/omni-plugin-interpolate": "*",
-    "@smarterlabs/omni-plugin-javascript": "*",
-    "@smarterlabs/omni-plugin-yaml": "*"
+    "yaml": "^1.8.3"
   }
 }

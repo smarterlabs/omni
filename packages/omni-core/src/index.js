@@ -100,6 +100,15 @@ export default class Odd{
 		// Do stuff with code blocks
 		if(data.blocks){
 			for(let block of data.blocks){
+				if(block.directives.config){
+					let obj = await trigger(`parseConfig`, block, data)
+					if (obj){
+						block.code = JSON.stringify(obj)
+						block.type = `json`
+					}
+				}
+			}
+			for(let block of data.blocks){
 				await trigger(`parseBlock`, block, data)
 			}
 		}
