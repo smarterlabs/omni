@@ -1,4 +1,4 @@
-# Omni-Directional Documents (WIP)
+# Example Omni-directional document!
 
 Markdown content is not processed and all unless otherwise specified. It can be used for easily documenting code.
 
@@ -20,6 +20,8 @@ Export function will run on build. Any values saved in the _shared variable will
 or:
 
 ```yaml run
+interpolate:
+  _test: abc
 _shared:
   title: Omni Directional Documents
 ```
@@ -27,6 +29,7 @@ _shared:
 could be interpolated to:
 
 ```es6 run
+console.log(`_test`)
 console.log(_shared.title) // Logs "Omni Directional Documents"
 _shared.pageTitle = `This is my website: ${_shared.title}`
 ```

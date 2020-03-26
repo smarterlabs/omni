@@ -1,11 +1,8 @@
 import glob from 'globby'
 import { join } from 'path'
-import javascriptPlugin from '@smarterlabs/omni-plugin-javascript'
-import phpPlugin from '@smarterlabs/omni-plugin-php'
 import extractCode from './extract-code'
 import exportFiles from './export-files'
 import readFiles from './read-files'
-import runJSON from './run-json'
 
 function bindThis($this, arr){
 	for(let prop of arr){
@@ -43,11 +40,6 @@ export default class Odd{
 		this.config.plugins.unshift(...[
 			readFiles(),
 			extractCode(),
-
-			runJSON(),
-			javascriptPlugin(),
-			phpPlugin(),
-
 			exportFiles(),
 		])
 

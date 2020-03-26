@@ -1,0 +1,21 @@
+{
+  "name": "@smarterlabs/omni-plugin-interpolate",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn run clean && babel src --out-dir dist",
+    "clean": "del dist",
+    "dev": "babel src --watch --out-dir dist"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@smarterlabs/babel-preset": "^1.0.8",
+    "@smarterlabs/eslint-config": "^1.0.7",
+    "del-cli": "^3.0.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.8.4"
+  }
+}
