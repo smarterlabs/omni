@@ -1,75 +1,46 @@
-# Omni-Directional Documents (WIP)
+# Omni-Directional Documents (.omni, .md)
 
-Markdown content is not processed and all unless otherwise specified. It can be used for easily documenting code.
+Omni directional documents will allow you to create "smart files" that are capable of doing things such as variable interpolation between files, file bundling, using multiple languages in one file, and more.
 
-The yaml frontmatter block above can contain instructions on how the file should run, or contain variables that get transpiled into the code blocks below.
+## Example
 
-## run directive
+This markdown file can actually be run as an Omni file. Only the code blocks will be executed. Any documentation in markdown like this sentence will be ignored.
 
-Export function will run on build. Any values saved in the _shared variable will prepended to other code blocks.
+The `config` directive tells Omni that this code tells the rest of the code blocks after it how to behave. In this case, it's telling Omni to replace any occurrences of "__scope" with "navigation". We can use this to scope our web component.
 
+```yaml config interpolate
+interpolate:
+  __scope: navigation
+```
 
-```json run
-{
-  "_shared": {
-    "title": "Omni Directional Documents"
-  }
+Code blocks with the `run` directive will run the block immediately when encountered during parsing.
+
+```js run
+console.log(`Omni component created with class "__scope"`)
+```
+
+The following three blocks of code will output to three seperate .js, .css, and .liquid files.
+
+```html export:templates/navigation.liquid
+<nav class='__scope'>
+  ...
+</nav>
+```
+
+```js export:js/nav
+let navEl = document.querySelector(`.__scope`)
+navEl.addEventListener(`click`, () => {
+  console.log(`Nav was clicked!`)
+})
+```
+
+```css export:css/nav
+.__scope{
+  background: #eee;
 }
 ```
 
-or:
-
-```yaml run
-_shared:
-  title: Omni Directional Documents
-```
-
-could be interpolated to:
-
-```es6 run
-console.log(_shared.title) // Logs "Omni Directional Documents"
-_shared.pageTitle = `This is my website: ${_shared.title}`
-```
-
-then maybe:
-
-```php run
-print_r($_shared); // The pageTitle variable we set in the ES6 block above is printed to the console
-```
-
-
-## export directive
-
-Blocks with the export directive will be exported into a seperate file after being processed by any other plugins.
-
-```js export:scripts
-document.querySelector('h1').textContent = _shared.pageTitle
-```
-
-```html export
-<h1></h1>
-<script src='scripts.js'></script>
-```
-
-By default, the filename will use the filename of the file its in and just change the extension to match the code type. But you can route the code to another file with a `:` argument.
-
-```html export:about
-<h2>This is the About Us page</h2>
-```
-
-## bundle directive
-
-```js bundle
-console.log(`This should appear in bundle.js`)
-```
-
-## Plugin Types
-
-- runners (example: omni-plugin-run-javascript)
-  - Enables running scripts directly in omni files during file processing
-- interpolators (example: omni-plugin-interpolate-javascript)
-  - Enables the sharing of variables between scripts
-
+We can then watch this file for changes and transpile to those three files any time this Omni file changes. Techniques like this can be used for bringing component based patterns into a monolithic framework that might not otherwise support it.
 
 ## All directives
 
@@ -78,12 +49,8 @@ console.log(`This should appear in bundle.js`)
 - export (exports the code block to a file)
   + Change file path with `export:../dist/index.html`
   + If multiple files are pointing to the same export location, they will be bundled into 1 file
-- config (a block of code for .odd config settings and shared variable)
-- md (process the block, but also leave it in the transpiled markdown)
-- bundle (adds the file to a bundle of similar file extensions: ./bundle.*)
-  + To change bundle name: `bundle:styles`
+- config (a block of code for Omni config and plugin settings)
 - output (outputs the result to markdown)
-
 
 ## Use Cases
 
@@ -95,34 +62,3 @@ console.log(`This should appear in bundle.js`)
 - Working with multiple frameworks simultaneously
 - Getting backend devs more familiar with front end or front end devs more familiar with backend
 - Expressing user flow in production code
-
-## Plugins
-
-### Default
-
-- shared-variables
-- build
-- export
-- bundle
-- scope
-  + Creates a unique string name per file
-  + `odd-${timestamp}`
-  + Adds to the shared object for access in all code blocks
-- test
-  + Would bundle suffice?
-- output
-
-### Next Phase
-
-- Sass
-- Liquid
-
-## Packages
-
-- @smarterlabs/omni-core
-  + Omni (pre)compiler
-  + Looks for config
-  + Compiles
-  + Watches for changes and compiles
-- @smarterlabs/omni-cli
-  + Exposes the core through CLI
