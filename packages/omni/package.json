@@ -1,7 +1,7 @@
 {
   "name": "@smarterlabs/omni",
   "author": "https://smarterlabs.com",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
@@ -18,12 +18,12 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4",
+    "@smarterlabs/omni-javascript": "^0.1.1",
+    "@smarterlabs/omni-php": "^0.1.1",
     "chokidar": "^3.3.1",
     "deepmerge": "^4.2.2",
     "fs-extra": "^8.1.0",
     "globby": "^11.0.0",
-    "@smarterlabs/omni-javascript": "^0.1.0",
-    "@smarterlabs/omni-php": "^0.1.0",
     "replace-ext": "^1.0.0"
   },
   "gitHead": "a2e27c9e09a8b53fd59798250d89435eeefc68c5"
