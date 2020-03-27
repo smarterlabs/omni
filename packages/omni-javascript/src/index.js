@@ -3,23 +3,8 @@ function isJS(type){
 	return false
 }
 
-export default function javascriptPlugin(options) {
-	options = {
-		wrap: false,
-		...options,
-	}
+export default function javascriptPlugin() {
 	return async omni => {
-		omni.on(`parseBlock`, async (block) => {
-			const {
-				directives: dirs,
-				type,
-			} = block
-			if (!isJS(type)) return
-			if (dirs.interpolate && dirs.interpolate[0] === false) return
-			if (dirs.wrap || options.wrap) {
-				block.code = `;!function(){\n${block.code}}();`
-			}
-		})
 		omni.on(`parseBlock`, async (block) => {
 			const {
 				type,

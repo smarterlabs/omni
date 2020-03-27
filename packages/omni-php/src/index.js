@@ -10,25 +10,25 @@ export default function phpPlugin(options) {
 	}
 	return async omni => {
 		// Interpolate shared variables
-		omni.on(`parseBlock`, async (block, data) => {
-			const {
-				directives: dirs,
-				type,
-			} = block
-			if (type !== `php`) return
-			if(dirs.interpolate && dirs.interpolate[0] === false) return
-			let str = JSON.stringify(data._shared)
-			str = str.replace(/"/g, `\\"`)
-			block.code = [
-				`$_shared = json_decode("${str}", true);`,
-				block.code,
-				`print "\n";`,
-				`print json_encode($_shared);`,
-			].join(`\n\n`)
-			if(dirs.wrap){
-				block.code = `<?php\n\n${block.code}\n\n?>`
-			}
-		})
+		// omni.on(`parseBlock`, async (block, data) => {
+		// 	const {
+		// 		directives: dirs,
+		// 		type,
+		// 	} = block
+		// 	if (type !== `php`) return
+		// 	if(dirs.interpolate && dirs.interpolate[0] === false) return
+		// 	let str = JSON.stringify(data._shared)
+		// 	str = str.replace(/"/g, `\\"`)
+		// 	block.code = [
+		// 		`$_shared = json_decode("${str}", true);`,
+		// 		block.code,
+		// 		`print "\n";`,
+		// 		`print json_encode($_shared);`,
+		// 	].join(`\n\n`)
+		// 	if(dirs.wrap){
+		// 		block.code = `<?php\n\n${block.code}\n\n?>`
+		// 	}
+		// })
 
 		// Wrap block
 		omni.on(`parseBlock`, async (block) => {

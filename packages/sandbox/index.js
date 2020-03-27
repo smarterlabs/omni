@@ -1,4 +1,4 @@
-import Omni  from 'omni-core'
+import Omni  from '@smarterlabs/omni'
 import omniInterpolate from '@smarterlabs/omni-interpolate'
 import omniJS from '@smarterlabs/omni-javascript'
 import omniYAML from '@smarterlabs/omni-yaml'
