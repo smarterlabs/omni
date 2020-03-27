@@ -1,4 +1,4 @@
-export default function interpolatePlugin(options) {
+export default function interpolationPlugin(options) {
 	options = {
 		transformKey: false,
 		...options,

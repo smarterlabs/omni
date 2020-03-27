@@ -1,5 +1,5 @@
 {
-  "name": "@smarterlabs/omni-interpolate",
+  "name": "@smarterlabs/omni-interpolation",
   "author": "https://smarterlabs.com",
   "version": "0.1.4",
   "main": "dist/index.js",

@@ -1,6 +1,6 @@
 import yaml from 'yaml'
 
-export default function interpolatePlugin() {
+export default function yamlPlugin() {
 	return async omni => {
 
 		// Convert yaml config to json

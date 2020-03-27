@@ -1,12 +1,20 @@
-# @smarterlabs/omni-javascript
+# Omni JavaScript Plugin
 
 A plugin that allows you to run JavaScript in [Omni-Directional Documents](https://github.com/smarterlabs/omni).
 
 ## Installation
 
 ```
-npm install @smarterlabs/omni-interpolate
+npm install @smarterlabs/omni-javascript --save
 ```
+
+or
+
+```
+yarn add @smarterlabs/omni-javascript
+```
+
+## Usage
 
 ```js
 import Omni  from '@smarterlabs/omni'
@@ -23,7 +31,7 @@ const omni = new Omni({
 omni.watch()
 ```
 
-## Usage
+## Example
 
 <pre lang='no-highlight'><code>
 ```js run

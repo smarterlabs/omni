@@ -3,7 +3,9 @@
 </p>
 
 
-# Omni-Directional Documents (.omni, .odd, .md)
+# Omni-Directional Documents (.omni, .odd)
+
+**Note:** All packages in this monorepo should be considered a work-in-progress. APIs may change dramatically.
 
 Think of Omni-Directional Documents as "smart markdown files" that are capable of doing things such as variable interpolation between files, file bundling, using multiple languages in one file, and more. Since the syntax is 90% markdown, you can benefit from linting and code highlighting that you get in markdown file code blocks.
 
@@ -51,13 +53,12 @@ We can then watch this file for changes and transpile to those three files any t
 
 ## All directives
 
-- on:start (executes before the file is transpiled)
-- on:done (executes after the file is transpiled)
+- config (a block of code for Omni config and plugin settings)
 - export (exports the code block to a file)
   + Change file path with `export:../dist/index.html`
   + If multiple files are pointing to the same export location, they will be bundled into 1 file
-- config (a block of code for Omni config and plugin settings)
-- output (outputs the result to markdown)
+
+**More on the way!**
 
 ## Use Cases
 

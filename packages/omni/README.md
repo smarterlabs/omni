@@ -5,7 +5,13 @@ Core module for [Omni-Directional Documents](https://github.com/smarterlabs/omni
 ## Installation
 
 ```
-npm install @smarterlabs/omni
+npm install @smarterlabs/omni --save
+```
+
+or
+
+```
+yarn add @smarterlabs/omni
 ```
 
 ## Usage

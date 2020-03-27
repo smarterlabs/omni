@@ -1,12 +1,20 @@
-# @smarterlabs/omni-php
+# Omni PHP Plugin
 
-A plugin that allows you to run and autowrap PHP blocks with `<?php ?>` in [Omni-Directional Documents](https://github.com/smarterlabs/omni).
+A plugin that allows you to run PHP in [Omni-Directional Documents](https://github.com/smarterlabs/omni).
 
 ## Installation
 
 ```
-npm install @smarterlabs/omni-php
+npm install @smarterlabs/omni-php --save-dev
 ```
+
+or
+
+```
+yarn add @smarterlabs/omni-php
+```
+
+## Usage
 
 ```js
 import Omni  from '@smarterlabs/omni'
@@ -23,7 +31,7 @@ const omni = new Omni({
 omni.watch()
 ```
 
-## Usage
+## Example
 
 <pre lang='no-highlight'><code>
 ```php run
