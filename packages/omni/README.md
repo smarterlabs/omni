@@ -1,4 +1,4 @@
-# @smarterlabs/omni
+# Omni
 
 Core module for [Omni-Directional Documents](https://github.com/smarterlabs/omni).
 
