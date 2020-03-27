@@ -80,7 +80,7 @@ export default class Odd{
 	}
 	watch() {
 		if(this.chokidar){
-			this.chokidar.unwatch()
+			this.chokidar.close()
 		}
 		this.chokidar = Chokidar.watch(`.`, { cwd: this.config.input })
 		this.chokidar.on(`all`, (event, path) => {
@@ -91,7 +91,7 @@ export default class Odd{
 	}
 	unwatch(){
 		if (this.chokidar) {
-			this.chokidar.unwatch()
+			this.chokidar.close()
 		}
 	}
 	async processFile(path){
