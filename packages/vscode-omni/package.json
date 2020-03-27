@@ -1,0 +1,23 @@
+{
+	"name": "@smarterlabs/vscode-omni",
+	"displayName": "Omni Syntax Highlighter",
+	"description": "A VS Code extension for working with Omni-Directional Documents",
+	"version": "0.0.0",
+	"private": true,
+	"engines": {
+		"vscode": "^1.43.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "markdown",
+				"extensions": [
+					".omni"
+				]
+			}
+		]
+	}
+}
