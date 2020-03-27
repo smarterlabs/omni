@@ -22,6 +22,5 @@
     "fs-extra": "^8.1.0",
     "globby": "^11.0.0",
     "replace-ext": "^1.0.0"
-  },
-  "gitHead": "a2e27c9e09a8b53fd59798250d89435eeefc68c5"
+  }
 }
