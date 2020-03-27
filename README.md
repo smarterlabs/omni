@@ -1,4 +1,7 @@
-![Omni Logo](https://res.cloudinary.com/smarterlabs/image/upload/v1585347380/omni/lockup-dark.svg | width=100)
+<p align="center">
+  <img src="https://res.cloudinary.com/smarterlabs/image/upload/v1585347380/omni/lockup-dark.svg" width="100" alt="Omni logo" />
+</p>
+
 
 # Omni-Directional Documents (.omni, .md)
 
