@@ -1,10 +1,12 @@
 # Omni-Directional Documents (.omni, .md)
 
-Omni directional documents will allow you to create "smart files" that are capable of doing things such as variable interpolation between files, file bundling, using multiple languages in one file, and more.
+Think of Omni-Directional Documents as "smart markdown files" that are capable of doing things such as variable interpolation between files, file bundling, using multiple languages in one file, and more. Since the syntax is 90% markdown, you can benefit from linting and code highlighting that you get in markdown file code blocks.
 
 ## Example
 
-This markdown file can actually be run as an Omni file. Only the code blocks will be executed. Any documentation in markdown like this sentence will be ignored.
+Even this markdown file can actually be run as an Omni file. Only the code blocks will be executed. Any documentation in markdown like this sentence will be ignored.
+
+**Note:** You may have to view the raw version of this file to see the Omni directives.
 
 The `config` directive tells Omni that this code tells the rest of the code blocks after it how to behave. In this case, it's telling Omni to replace any occurrences of "__scope" with "navigation". We can use this to scope our web component.
 
