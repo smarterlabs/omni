@@ -1,5 +1,5 @@
 {
-  "name": "omni-plugin-php",
+  "name": "@smarterlabs/omni-yaml",
   "author": "https://smarterlabs.com",
   "version": "0.1.0",
   "main": "dist/index.js",
@@ -18,9 +18,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4",
-    "deepmerge": "^4.2.2",
-    "fs-extra": "^8.1.0",
-    "globby": "^11.0.0",
-    "replace-ext": "^1.0.0"
-  }
+    "yaml": "^1.8.3"
+  },
+  "gitHead": "a2e27c9e09a8b53fd59798250d89435eeefc68c5"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "omni-plugin-interpolate",
+  "name": "@smarterlabs/omni-interpolate",
   "author": "https://smarterlabs.com",
   "version": "0.1.0",
   "main": "dist/index.js",
@@ -18,5 +18,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4"
-  }
+  },
+  "gitHead": "a2e27c9e09a8b53fd59798250d89435eeefc68c5"
 }
