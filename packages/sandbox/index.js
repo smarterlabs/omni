@@ -1,7 +1,7 @@
-import Omni  from '@smarterlabs/omni-core'
-import omniInterpolate from '@smarterlabs/omni-plugin-interpolate'
-import omniJS from '@smarterlabs/omni-plugin-javascript'
-import omniYAML from '@smarterlabs/omni-plugin-yaml'
+import Omni  from 'omni-core'
+import omniInterpolate from 'omni-plugin-interpolate'
+import omniJS from 'omni-plugin-javascript'
+import omniYAML from 'omni-plugin-yaml'
 
 const omni = new Omni({
 	input: `example`,

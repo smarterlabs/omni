@@ -1,5 +1,6 @@
 {
-  "name": "@smarterlabs/omni",
+  "name": "omni-monorepo",
+  "author": "https://smarterlabs.com",
   "version": "1.0.0",
   "private": true,
   "main": "index.js",

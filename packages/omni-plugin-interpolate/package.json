@@ -1,5 +1,6 @@
 {
-  "name": "@smarterlabs/omni-plugin-interpolate",
+  "name": "omni-plugin-interpolate",
+  "author": "https://smarterlabs.com",
   "version": "0.0.0",
   "main": "dist/index.js",
   "license": "MIT",
