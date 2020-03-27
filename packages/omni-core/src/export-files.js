@@ -1,4 +1,4 @@
-import { join } from 'path'
+import { join, extname } from 'path'
 import replaceExt from 'replace-ext'
 import { outputFile } from 'fs-extra'
 
@@ -12,7 +12,10 @@ export default function exportFiles() {
 				if (!dirs.export) continue
 
 				let outputPath = join(omni.config.output, dirs.export[0] || data.path)
-				outputPath = replaceExt(outputPath, `.${block.type}`)
+				let ext = extname(outputPath)
+				if (!ext) {
+					outputPath = replaceExt(outputPath, `.${block.type}`)
+				}
 				promises.push(outputFile(outputPath, block.code))
 			}
 

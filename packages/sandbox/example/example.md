@@ -5,6 +5,6 @@ __scope: nav
 
 
 
-```es6 run
+```js export:../dist/script
 console.log(`__scope`)
 ```
