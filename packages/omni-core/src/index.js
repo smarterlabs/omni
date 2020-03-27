@@ -1,6 +1,6 @@
 import glob from 'globby'
 import { join } from 'path'
-import chokidar from 'chokidar'
+import Chokidar from 'chokidar'
 import extractCode from './extract-code'
 import exportFiles from './export-files'
 import readFiles from './read-files'
@@ -79,13 +79,17 @@ export default class Odd{
 		return res
 	}
 	watch() {
-		chokidar.watch(`.`, {
-			cwd: this.config.input,
-		}).on(`all`, (event, path) => {
+		this.chokidar = Chokidar.watch(`.`, { cwd: this.config.input })
+		this.chokidar.on(`all`, (event, path) => {
 			if(event == `add` || event == `change`){
 				this.processFile(path)
 			}
 		})
+	}
+	unwatch(){
+		if (this.chokidar) {
+			this.chokidar.unwatch()
+		}
 	}
 	async processFile(path){
 		const trigger = this.triggerEvents
