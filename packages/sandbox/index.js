@@ -13,4 +13,4 @@ const omni = new Omni({
 	],
 })
 
-omni.processDirectory()
+omni.watch()
