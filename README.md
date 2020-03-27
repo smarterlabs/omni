@@ -3,7 +3,7 @@
 </p>
 
 
-# Omni-Directional Documents (.omni, .md)
+# Omni-Directional Documents (.omni, .odd)
 
 Think of Omni-Directional Documents as "smart markdown files" that are capable of doing things such as variable interpolation between files, file bundling, using multiple languages in one file, and more. Since the syntax is 90% markdown, you can benefit from linting and code highlighting that you get in markdown file code blocks.
 
