@@ -79,6 +79,9 @@ export default class Odd{
 		return res
 	}
 	watch() {
+		if(this.chokidar){
+			this.chokidar.unwatch()
+		}
 		this.chokidar = Chokidar.watch(`.`, { cwd: this.config.input })
 		this.chokidar.on(`all`, (event, path) => {
 			if(event == `add` || event == `change`){
