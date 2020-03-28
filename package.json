@@ -8,7 +8,7 @@
   "scripts": {
     "build": "lerna run build --stream",
     "dev": "lerna run dev --stream --no-sort --concurrency 999",
-    "publish:production": "lerna publish from-package --yes",
+    "publish": "lerna publish from-package --yes",
     "version": "lerna version"
   },
   "husky": {
