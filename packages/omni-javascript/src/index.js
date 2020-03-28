@@ -5,7 +5,7 @@ function isJS(type){
 
 export default function javascriptPlugin() {
 	return async omni => {
-		omni.on(`parseBlock`, async (block) => {
+		omni.on(`parseBlock`, async (block, data) => {
 			const {
 				type,
 				code,
@@ -13,9 +13,9 @@ export default function javascriptPlugin() {
 			} = block
 
 			if (run && isJS(type)) {
-				let fn = new Function(code)
+				let fn = new Function(`data`, code)
 				try {
-					await fn()
+					await fn(data)
 				}
 				catch(err){
 					console.error(err)

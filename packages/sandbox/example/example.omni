@@ -1,10 +1,8 @@
-```yaml config interpolate
-__scope: nav
+```yaml config
+interpolate:
+  _scope_: nav
 ```
 
-
-
-
-```js export:../dist/script
-console.log(`__scope`)
+```js export:../dist/
+console.log(`_scope_`)
 ```
