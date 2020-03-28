@@ -4,6 +4,17 @@
   "version": "0.1.5",
   "main": "dist/index.js",
   "license": "MIT",
+  "keywords": [
+    "omni",
+    "plugin",
+    "interpolation",
+    "odd",
+    "markdown",
+    "md",
+    "smarter",
+    "labs",
+    "smarterlabs"
+  ],
   "scripts": {
     "build": "yarn run clean && babel src --out-dir dist",
     "clean": "del dist",
