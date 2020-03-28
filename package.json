@@ -1,5 +1,5 @@
 {
-  "name": "omni-monorepo",
+  "name": "omni",
   "author": "https://smarterlabs.com",
   "version": "1.0.0",
   "private": true,
@@ -8,7 +8,7 @@
   "scripts": {
     "build": "lerna run build --stream",
     "dev": "lerna run dev --stream --no-sort --concurrency 999",
-    "publish": "lerna publish from-package --yes",
+    "publish:production": "lerna publish from-package --yes",
     "version": "lerna version"
   },
   "husky": {
