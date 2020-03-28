@@ -2,18 +2,25 @@
   <img src="https://res.cloudinary.com/smarterlabs/image/upload/v1585347380/omni/lockup-dark.svg" width="100" alt="Omni logo" />
 </p>
 
-
 # Omni-Directional Documents (.omni, .odd)
 
 **Note:** All packages in this monorepo should be considered a work-in-progress. APIs may change dramatically.
 
 Think of Omni-Directional Documents as "smart markdown files" that are capable of doing things such as variable interpolation between files, file bundling, using multiple languages in one file, and more. Since the syntax is 90% markdown, you can benefit from linting and code highlighting that you get in markdown file code blocks.
 
-## Example
+# Current Packages
 
-Even this markdown file can actually be run as an Omni file. Only the code blocks will be executed. Any documentation in markdown like this sentence will be ignored.
+- [Omni Core](https://github.com/smarterlabs/omni/tree/master/packages/omni): A JS module that acts as the core of the Omni compiler
+- [PHP Language Plugin](https://github.com/smarterlabs/omni/tree/master/packages/omni-php): Enables PHP usage in .omni files
+- [JavaScript Language Plugin](https://github.com/smarterlabs/omni/tree/master/packages/omni-javascript): Enables JS usage in .omni files
+- [Yaml Language Plugin](https://github.com/smarterlabs/omni/tree/master/packages/omni-yaml): Enables Yaml config in .omni files
+- [Interpolation Plugin](https://github.com/smarterlabs/omni/tree/master/packages/omni-interpolation): Enables string interpolation in .omni code blocks
+- [VS Code Omni Extension](https://marketplace.visualstudio.com/items?itemName=smarterlabs.vscode-omni): VS Code extension that enables code highlighting for .omni and .odd files
 
-**Note:** You may have to view the raw version of this file to see the Omni directives.
+## Example .omni file
+
+<pre lang='no-highlight'><code>
+This is an example .omni file. Text like this that is outside of a code block will be ignored.
 
 The `config` directive tells Omni that this code tells the rest of the code blocks after it how to behave. In this case, it's telling Omni to replace any occurrences of "__scope" with "navigation". We can use this to scope our web component.
 
@@ -48,10 +55,15 @@ navEl.addEventListener(`click`, () => {
   background: #eee;
 }
 ```
+</code></pre>
 
 We can then watch this file for changes and transpile to those three files any time this Omni file changes. Techniques like this can be used for bringing component based patterns into a monolithic framework that might not otherwise support it.
 
+With the right kind of language plugins, variables could be injected into the code block without interpolation.
+
 ## Directives
+
+**Note:** More on the way!
 
 ### `config`
 
@@ -64,8 +76,6 @@ A code block with a `run` directive will execute the code block every time the f
 ### `export`
 
 A code block with the `export` directive will export the code block to its own file after it has been processed
-
-**More on the way!**
 
 ## Use Cases
 
