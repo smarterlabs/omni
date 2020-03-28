@@ -1,6 +1,6 @@
 {
 	"name": "vscode-omni",
-	"author": "https://smarterlabs.com",
+	"publisher": "smarter-labs",
 	"displayName": "Omni-Directional Documents",
 	"description": "A VS Code extension for working with Omni-Directional Documents",
 	"version": "1.0.0",

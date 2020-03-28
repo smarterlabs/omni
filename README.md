@@ -51,12 +51,19 @@ navEl.addEventListener(`click`, () => {
 
 We can then watch this file for changes and transpile to those three files any time this Omni file changes. Techniques like this can be used for bringing component based patterns into a monolithic framework that might not otherwise support it.
 
-## All directives
+## Directives
 
-- config (a block of code for Omni config and plugin settings)
-- export (exports the code block to a file)
-  + Change file path with `export:../dist/index.html`
-  + If multiple files are pointing to the same export location, they will be bundled into 1 file
+### `config`
+
+A code block with a `config` directive is usually used to give instructions to Omni about how a file should be run or processed.
+
+### `run`
+
+A code block with a `run` directive will execute the code block every time the file is processed. This can be useful for fetching data from an API to pass to another code block, or logging out debug information about the file that is being processed.
+
+### `export`
+
+A code block with the `export` directive will export the code block to its own file after it has been processed
 
 **More on the way!**
 
