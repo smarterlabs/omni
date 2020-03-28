@@ -25,7 +25,7 @@ jobs:
 
       - name: Register npm token
         run: |
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > /home/runner/work/_temp/.npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > /home/runner/work/_temp/.npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
