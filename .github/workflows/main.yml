@@ -33,9 +33,20 @@ jobs:
         with:
           cmd: build
 
+      - name: Authenticate with Registry
+        run: |
+          yarn logout
+          echo "@smarterlabs:registry=http://registry.npmjs.org/" > .npmrc
+          echo "registry=http://registry.npmjs.org/" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+
       - name: Publish packages to npm
         uses: borales/actions-yarn@v2.0.0
         with:
           cmd: publish:production
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
