@@ -1,11 +1,16 @@
 {
 	"name": "vscode-omni",
-	"publisher": "smarter-labs",
+	"publisher": "smarterlabs",
 	"displayName": "Omni-Directional Documents",
 	"description": "A VS Code extension for working with Omni-Directional Documents",
-	"version": "1.0.0",
+	"version": "0.0.0",
 	"private": true,
 	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/smarterlabs/omni.git",
+		"directory": "packages/vscode-omni"
+	},
 	"engines": {
 		"vscode": "^1.43.0"
 	},
