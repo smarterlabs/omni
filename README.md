@@ -8,6 +8,8 @@
 
 Think of Omni-Directional Documents as "smart markdown files" that are capable of doing things such as variable interpolation between files, file bundling, using multiple languages in one file, and more. Since the syntax is 90% markdown, you can benefit from linting and code highlighting that you get in markdown file code blocks.
 
+[Example .omni file](https://github.com/smarterlabs/omni/blob/master/example.omni)
+
 # Current Packages
 
 - [Omni Core](https://github.com/smarterlabs/omni/tree/master/packages/omni): A JS module that acts as the core of the Omni compiler
@@ -16,50 +18,6 @@ Think of Omni-Directional Documents as "smart markdown files" that are capable o
 - [Yaml Language Plugin](https://github.com/smarterlabs/omni/tree/master/packages/omni-yaml): Enables Yaml config in .omni files
 - [Interpolation Plugin](https://github.com/smarterlabs/omni/tree/master/packages/omni-interpolation): Enables string interpolation in .omni code blocks
 - [VS Code Omni Extension](https://marketplace.visualstudio.com/items?itemName=smarterlabs.vscode-omni): VS Code extension that enables code highlighting for .omni and .odd files
-
-## Example .omni file
-
-<pre lang='no-highlight'><code>
-This is an example .omni file. Text like this that is outside of a code block will be ignored.
-
-The `config` directive tells Omni that this code tells the rest of the code blocks after it how to behave. In this case, it's telling Omni to replace any occurrences of "__scope" with "navigation". We can use this to scope our web component.
-
-```yaml config interpolate
-interpolate:
-  __scope: navigation
-```
-
-Code blocks with the `run` directive will run the block immediately when encountered during parsing.
-
-```js run
-console.log(`Omni component created with class "__scope"`)
-```
-
-The following three blocks of code will output to three seperate .js, .css, and .liquid files.
-
-```html export:templates/navigation.liquid
-<nav class='__scope'>
-  ...
-</nav>
-```
-
-```js export:js/nav
-let navEl = document.querySelector(`.__scope`)
-navEl.addEventListener(`click`, () => {
-  console.log(`Nav was clicked!`)
-})
-```
-
-```css export:css/nav
-.__scope{
-  background: #eee;
-}
-```
-</code></pre>
-
-We can then watch this file for changes and transpile to those three files any time this Omni file changes. Techniques like this can be used for bringing component based patterns into a monolithic framework that might not otherwise support it.
-
-With the right kind of language plugins, variables could be injected into the code block without interpolation.
 
 ## Directives
 
