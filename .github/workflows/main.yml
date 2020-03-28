@@ -26,11 +26,7 @@ jobs:
 
       - name: Authenticate with Registry
         run: |
-          yarn logout
-          echo "@smarterlabs:registry=http://registry.npmjs.org/" > .npmrc
-          echo "registry=http://registry.npmjs.org/" >> .npmrc
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
-          npm whoami
+          npm config set registry //registry.npmjs.org/:_authToken=$NPM_TOKEN -q
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
