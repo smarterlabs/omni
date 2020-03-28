@@ -35,6 +35,40 @@ A code block with a `run` directive will execute the code block every time the f
 
 A code block with the `export` directive will export the code block to its own file after it has been processed
 
+### Directive aliases
+
+You can create your own directives with directive aliases:
+
+```js
+const omni = new Omni({
+	input: `example`,
+	output: `dist`,
+	aliases: {
+		script: `export:../dist/js/scripts/*.js`,
+		style: `export:../dist/css/styles/*.css`,
+	},
+})
+
+export default omni
+```
+
+And then use these directives:
+
+<pre lang='no-highlight'><code>
+```js script
+console.log(`I was exported to another directory via alias!`)
+```
+
+```css style
+body{
+	margin: 0;
+}
+```
+</code></pre>
+
+The `script` and `style` aliases will use the `export` directives in the config and export to thier respective locations.
+
+
 ## Use Cases
 
 - Using component-style patterns with frameworks that don't support them
