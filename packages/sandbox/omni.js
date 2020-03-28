@@ -6,6 +6,10 @@ import omniYAML from '@smarterlabs/omni-yaml'
 const omni = new Omni({
 	input: `example`,
 	output: `dist`,
+	aliases: {
+		dist: `export:../dist/`,
+		css: `export:../dist/css/components/`,
+	},
 	plugins: [
 		omniInterpolation(),
 		omniJS(),

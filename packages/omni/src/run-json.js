@@ -6,9 +6,9 @@ export default function runJSON() {
 			const {
 				type,
 				code,
-				directives: { run, config },
+				directives: dirs,
 			} = block
-			if ((run || config) && type === `json`) {
+			if ((dirs.run || dirs.config) && type === `json`) {
 				const obj = JSON.parse(code)
 				for(let i in obj){
 					data[i] = deepmerge(data[i], obj[i])

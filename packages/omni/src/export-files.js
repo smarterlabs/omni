@@ -16,7 +16,7 @@ export default function exportFiles() {
 				let originalName = basename(data.path, extension)
 
 				// Get code block export path from export directive argument
-				let blockPath = dirs.export[0]
+				let blockPath = dirs.export
 				if (blockPath) {
 					blockPath = blockPath.replace(/\*/g, originalName)
 					if(blockPath.charAt(blockPath.length - 1) === `/`){

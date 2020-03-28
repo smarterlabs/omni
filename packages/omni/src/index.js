@@ -5,6 +5,7 @@ import extractCode from './extract-code'
 import exportFiles from './export-files'
 import readFiles from './read-files'
 import runJSON from './run-json'
+import directiveAliases from './directive-aliases'
 
 function bindThis($this, arr){
 	for(let prop of arr){
@@ -39,11 +40,13 @@ export default class Odd{
 		this.on = this.addEventListener
 		this.off = this.removeEventListener
 
+		// Default plugins
 		this.config.plugins.unshift(...[
 			readFiles(),
 			runJSON(),
 			extractCode(),
 			exportFiles(),
+			directiveAliases(),
 		])
 
 		this.config.plugins.forEach(initPlugin => {

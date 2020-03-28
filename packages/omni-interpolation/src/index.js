@@ -13,6 +13,8 @@ export default function interpolationPlugin(options) {
 
 			if(dirs.interpolate && dirs.interpolate[0] === false) return
 
+			// console.log(`data`, data)
+
 			for (let key in data.interpolate) {
 				if (options.transformKey) {
 					key = options.transformKey(key)

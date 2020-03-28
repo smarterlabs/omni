@@ -3,6 +3,6 @@ interpolate:
   _scope_: nav
 ```
 
-```js export:../dist/
+```js dist
 console.log(`_scope_`)
 ```

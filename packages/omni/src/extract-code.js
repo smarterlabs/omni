@@ -1,40 +1,22 @@
-function isLetter(str) {
-	return str.length === 1 && str.match(/[a-z]/i)
-}
-
-function parseDirectives(arr){
-	arr = arr
-		.shift()
-		.trim()
-		.split(/\s+/)
-		.map(str => str.trim())
-
-	const type = arr.shift()
-	const directives = {}
-
-	for (let str of arr) {
-		const [directive, ...args] = str.split(`:`)
-		directives[directive] = args
-	}
-
-	return {
-		type,
-		directives,
-	}
-}
+import parseDirectives from './parse-directives'
 
 export default function extractCode() {
 	return omni => {
-		omni.addEventListener(`parseFile`, data => {
-			const arr = data.contents.split(`\`\`\``)
-			const blocks = []
+		omni.addEventListener(`parseFile`, async data => {
+			let arr = data.contents.split(`\`\`\``)
+			let blocks = []
 			arr.shift()
 			for (let block of arr) {
 				// If it's a marked code block
 				if (isLetter(block.charAt(0))) {
-					const arr = block.split(/(?<=)\n/)
-					const { type, directives } = parseDirectives(arr)
-					const code = arr.join(`\n`).trim()
+					let arr = block.split(/(?<=)\n/)
+					let directivesStr = arr.shift()
+					let { type, directives } = parseDirectives(directivesStr)
+					let newDirectives = await omni.triggerEvents(`parseDirectives`, directives)
+					if (newDirectives){
+						directives = newDirectives
+					}
+					let code = arr.join(`\n`).trim()
 					blocks.push({
 						code,
 						type,
@@ -47,4 +29,8 @@ export default function extractCode() {
 			return data
 		})
 	}
+}
+
+function isLetter(str) {
+	return str.length === 1 && str.match(/[a-z]/i)
 }
