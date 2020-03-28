@@ -5,12 +5,19 @@
 	"description": "A VS Code extension for working with Omni-Directional Documents",
 	"version": "1.0.0",
 	"private": true,
+	"license": "MIT",
 	"engines": {
 		"vscode": "^1.43.0"
 	},
 	"categories": [
 		"Programming Languages"
 	],
+	"keywords": [
+		"omni",
+		"markdown",
+		"odd"
+	],
+	"icon": "logo.png",
 	"contributes": {
 		"languages": [
 			{
