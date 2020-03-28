@@ -1,0 +1,35 @@
+name: Production workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Install dependencies
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+
+      - name: Build packages
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: build
+
+      - name: Register npm token
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > /home/runner/work/_temp/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Deploy packages to npm
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: deploy
