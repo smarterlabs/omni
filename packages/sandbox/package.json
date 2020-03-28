@@ -6,7 +6,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "yarn run clean && babel-node index",
+    "build": "yarn run clean && babel-node build",
+    "dev": "yarn run clean && babel-node watch",
     "clean": "del dist"
   },
   "devDependencies": {

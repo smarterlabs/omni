@@ -13,4 +13,4 @@ const omni = new Omni({
 	],
 })
 
-omni.watch()
+export default omni

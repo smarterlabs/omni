@@ -1,35 +1,35 @@
 This is an example .omni file. Text like this that is outside of a code block will be ignored.
 
-The `config` directive gives Omni instructions about how the code blocks under it should be treated. In this case, it's telling Omni to replace any occurrences of "__scope" with "navigation". We can use this to scope our web component.
+The `config` directive gives Omni instructions about how the code blocks under it should be treated. In this case, it's telling Omni to replace any occurrences of "_scope_" with "navigation". We can use this to scope our web component.
 
 ```yaml config interpolate
 interpolate:
-  __scope: navigation
+  _scope_: navigation
 ```
 
 Code blocks with the `run` directive will run the block immediately when encountered during parsing.
 
 ```js run
-console.log(`Omni component created with class "__scope"`)
+console.log(`Omni component created with class "_scope_"`)
 ```
 
 The following three blocks of code will output to three seperate .js, .css, and .liquid files.
 
 ```html export:templates/navigation.liquid
-<nav class='__scope'>
+<nav class='_scope_'>
   ...
 </nav>
 ```
 
 ```js export:js/nav
-let navEl = document.querySelector(`.__scope`)
+let navEl = document.querySelector(`._scope_`)
 navEl.addEventListener(`click`, () => {
   console.log(`Nav was clicked!`)
 })
 ```
 
 ```css export:css/nav
-.__scope{
+._scope_{
   background: #eee;
 }
 ```

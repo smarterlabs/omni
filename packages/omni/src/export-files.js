@@ -11,7 +11,10 @@ export default function exportFiles() {
 				const dirs = block.directives
 				if (!dirs.export) continue
 
-				let outputPath = join(omni.config.output, dirs.export[0] || data.path)
+				console.log(`data`, data)
+				let blockPath = dirs.export[0]
+
+				let outputPath = join(omni.config.output, blockPath || data.path)
 				let ext = extname(outputPath)
 				if (!ext) {
 					outputPath = replaceExt(outputPath, `.${block.type}`)
