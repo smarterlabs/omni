@@ -1,7 +1,7 @@
 {
   "name": "@smarterlabs/omni-interpolation",
   "author": "https://smarterlabs.com",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "main": "dist/index.js",
   "license": "MIT",
   "keywords": [
