@@ -1,0 +1,10 @@
+{
+  "name": "@smarterlabs/omni-cli",
+  "author": "https://smarterlabs.com",
+  "version": "0.0.0",
+  "license": "MIT",
+  "bin": {
+    "@smarterlabs/omni-cli": "node omni.js",
+    "omni": "node omni.js"
+  }
+}
