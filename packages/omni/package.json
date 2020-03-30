@@ -32,7 +32,7 @@
     "@smarterlabs/omni-php": "^0.1.9",
     "chokidar": "^3.3.1",
     "deepmerge": "^4.2.2",
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9.0.0",
     "globby": "^11.0.0",
     "replace-ext": "^1.0.0"
   }

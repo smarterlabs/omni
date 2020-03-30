@@ -1,11 +1,12 @@
 import glob from 'globby'
 import { join } from 'path'
-import Chokidar from 'chokidar'
 import extractCode from './extract-code'
 import exportFiles from './export-files'
 import readFiles from './read-files'
 import runJSON from './run-json'
 import directiveAliases from './directive-aliases'
+import exportMap from './export-map'
+import watch from './watch'
 
 function bindThis($this, arr){
 	for(let prop of arr){
@@ -45,6 +46,8 @@ export default class Odd{
 			readFiles(),
 			runJSON(),
 			extractCode(),
+			exportMap(),
+			watch(),
 			exportFiles(),
 			directiveAliases(),
 		])
@@ -83,21 +86,11 @@ export default class Odd{
 		}
 		return res
 	}
-	watch() {
-		if(this.chokidar){
-			this.chokidar.close()
-		}
-		this.chokidar = Chokidar.watch(`.`, { cwd: this.config.input })
-		this.chokidar.on(`all`, (event, path) => {
-			if(event == `add` || event == `change`){
-				this.processFile(path)
-			}
-		})
+	async watch() {
+		await this.triggerEvents(`watch`)
 	}
-	unwatch(){
-		if (this.chokidar) {
-			this.chokidar.close()
-		}
+	async unwatch(){
+		await this.triggerEvents(`unwatch`)
 	}
 	async processFile(path){
 		const trigger = this.triggerEvents

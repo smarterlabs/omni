@@ -30,6 +30,9 @@ export default function exportFiles() {
 				if (!ext) {
 					outputPath = replaceExt(outputPath, `.${block.type}`)
 				}
+				data.outputPath = outputPath
+
+				await omni.triggerEvents(`export`, data)
 
 				promises.push(outputFile(outputPath, block.code))
 			}
