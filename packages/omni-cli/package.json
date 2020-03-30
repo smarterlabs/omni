@@ -4,7 +4,7 @@
   "version": "0.0.2",
   "license": "MIT",
   "bin": {
-    "@smarterlabs/omni-cli": "node omni.js",
-    "omni": "node omni.js"
+    "@smarterlabs/omni-cli": "./omni.js",
+    "omni": "./omni.js"
   }
 }
