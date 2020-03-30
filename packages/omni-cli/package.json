@@ -11,7 +11,6 @@
     "smarterlabs"
   ],
   "bin": {
-    "@smarterlabs/omni-cli": "./index.js",
-    "omni": "./index.js"
+    "omni": "./index.sh"
   }
 }
