@@ -6,8 +6,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "yarn run clean && babel-node build",
-    "dev": "yarn run clean && babel-node watch",
+    "build": "yarn run clean && omni build",
+    "dev": "yarn run clean && omni watch",
     "clean": "del dist"
   },
   "devDependencies": {
@@ -20,6 +20,7 @@
   "dependencies": {
     "@babel/runtime": "^7.8.4",
     "@smarterlabs/omni": "^0.1.11",
+    "@smarterlabs/omni-cli": "*",
     "@smarterlabs/omni-interpolation": "^0.1.10",
     "@smarterlabs/omni-javascript": "^0.1.10",
     "@smarterlabs/omni-yaml": "^0.1.9"

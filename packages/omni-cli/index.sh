@@ -1,3 +1,3 @@
 #!/bin/bash
 
-node omni $@
+node omni-config $@

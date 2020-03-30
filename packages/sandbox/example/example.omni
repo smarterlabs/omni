@@ -4,5 +4,5 @@ interpolate:
 ```
 
 ```js dist
-console.log(`_scope_`)
+console.log(`Scope: _scope_`)
 ```

@@ -28,6 +28,7 @@ export default class Odd{
 			output: `./dist`,
 			plugins: [],
 			fileTypes: [`md`, `omni`, `odd`, `od`],
+			cli: true,
 
 			...config,
 		}
@@ -57,6 +58,17 @@ export default class Odd{
 		})
 
 		this.triggerEvents(`init`)
+
+		// If running from CLI
+		if (this.config.cli === true && typeof process !== undefined && process.argv) {
+			let [,, cmd] = process.argv
+			if(cmd === `build`){
+				this.processDirectory()
+			}
+			else if(cmd === `watch`){
+				this.watch()
+			}
+		}
 	}
 	addEventType(label) {
 		const els = this.eventListeners
