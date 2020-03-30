@@ -1,1 +1,3 @@
-ls
+#!/bin/bash
+
+node omni $@
