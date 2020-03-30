@@ -1,7 +1,7 @@
 {
   "name": "@smarterlabs/omni-cli",
   "author": "https://smarterlabs.com",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "bin": {
     "@smarterlabs/omni-cli": "./index.js",
