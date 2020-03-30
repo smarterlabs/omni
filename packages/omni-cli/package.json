@@ -3,6 +3,13 @@
   "author": "https://smarterlabs.com",
   "version": "0.0.5",
   "license": "MIT",
+  "keywords": [
+    "omni",
+    "cli",
+    "smarter",
+    "labs",
+    "smarterlabs"
+  ],
   "bin": {
     "@smarterlabs/omni-cli": "./index.js",
     "omni": "./index.js"
