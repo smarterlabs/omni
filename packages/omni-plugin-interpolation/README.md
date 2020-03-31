@@ -5,20 +5,20 @@ String interpolation plugin for [Omni-Directional Documents](https://github.com/
 ## Installation
 
 ```
-npm install @smarterlabs/omni-interpolation --save
+npm install @smarterlabs/omni-plugin-interpolation --save
 ```
 
 or
 
 ```
-yarn add @smarterlabs/omni-interpolation
+yarn add @smarterlabs/omni-plugin-interpolation
 ```
 
 ## Usage
 
 ```js
 import Omni  from '@smarterlabs/omni'
-import omniInterpolation from '@smarterlabs/omni-interpolation'
+import omniInterpolation from '@smarterlabs/omni-plugin-interpolation'
 
 const omni = new Omni({
 	input: `src`,

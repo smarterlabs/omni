@@ -5,20 +5,20 @@ A plugin that allows you to run JavaScript in [Omni-Directional Documents](https
 ## Installation
 
 ```
-npm install @smarterlabs/omni-javascript --save
+npm install @smarterlabs/omni-plugin-javascript --save
 ```
 
 or
 
 ```
-yarn add @smarterlabs/omni-javascript
+yarn add @smarterlabs/omni-plugin-javascript
 ```
 
 ## Usage
 
 ```js
 import Omni  from '@smarterlabs/omni'
-import omniJS from '@smarterlabs/omni-javascript'
+import omniJS from '@smarterlabs/omni-plugin-javascript'
 
 const omni = new Omni({
 	input: `src`,

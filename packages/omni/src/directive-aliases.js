@@ -13,7 +13,6 @@ export default function directiveAliasesPlugin() {
 					}
 				}
 			}
-			console.log(`directives`, directives)
 			return directives
 		})
 	}

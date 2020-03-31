@@ -5,20 +5,20 @@ A plugin that allows you to use `yaml` config blocks in [Omni-Directional Docume
 ## Installation
 
 ```
-npm install @smarterlabs/omni-yaml --save
+npm install @smarterlabs/omni-plugin-yaml --save
 ```
 
 or
 
 ```
-yarn add @smarterlabs/omni-yaml
+yarn add @smarterlabs/omni-plugin-yaml
 ```
 
 ## Usage
 
 ```js
 import Omni  from '@smarterlabs/omni'
-import omniYaml from '@smarterlabs/omni-yaml'
+import omniYaml from '@smarterlabs/omni-plugin-yaml'
 
 const omni = new Omni({
 	input: `src`,

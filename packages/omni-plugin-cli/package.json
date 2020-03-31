@@ -1,13 +1,13 @@
 {
-  "name": "@smarterlabs/omni-interpolation",
+  "name": "@smarterlabs/omni-plugin-cli",
   "author": "https://smarterlabs.com",
-  "version": "0.1.10",
+  "version": "0.0.0",
   "main": "dist/index.js",
   "license": "MIT",
   "keywords": [
     "omni",
     "plugin",
-    "interpolation",
+    "cli",
     "odd",
     "markdown",
     "md",

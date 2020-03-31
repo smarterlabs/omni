@@ -1,5 +1,5 @@
 {
-  "name": "@smarterlabs/omni-yaml",
+  "name": "@smarterlabs/omni-plugin-yaml",
   "author": "https://smarterlabs.com",
   "version": "0.1.9",
   "main": "dist/index.js",

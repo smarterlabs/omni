@@ -20,9 +20,8 @@
   "dependencies": {
     "@babel/runtime": "^7.8.4",
     "@smarterlabs/omni": "^0.1.11",
-    "@smarterlabs/omni-cli": "*",
-    "@smarterlabs/omni-interpolation": "^0.1.10",
-    "@smarterlabs/omni-javascript": "^0.1.10",
-    "@smarterlabs/omni-yaml": "^0.1.9"
+    "@smarterlabs/omni-plugin-interpolation": "^0.1.10",
+    "@smarterlabs/omni-plugin-javascript": "^0.1.10",
+    "@smarterlabs/omni-plugin-yaml": "^0.1.9"
   }
 }

@@ -1,17 +1,15 @@
 {
-  "name": "@smarterlabs/omni-php",
+  "name": "@smarterlabs/omni-core",
   "author": "https://smarterlabs.com",
-  "version": "0.1.9",
+  "version": "0.0.0",
   "main": "dist/index.js",
   "license": "MIT",
   "keywords": [
     "omni",
-    "plugin",
-    "php",
-    "language",
     "odd",
     "markdown",
     "md",
+    "core",
     "smarter",
     "labs",
     "smarterlabs"
@@ -19,7 +17,7 @@
   "scripts": {
     "build": "yarn run clean && babel src --out-dir dist",
     "clean": "del dist",
-    "dev": "babel src --watch --out-dir dist"
+    "dev": "babel src --out-dir dist --watch"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -31,8 +29,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4",
+    "chokidar": "^3.3.1",
     "deepmerge": "^4.2.2",
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9.0.0",
     "globby": "^11.0.0",
     "replace-ext": "^1.0.0"
   }

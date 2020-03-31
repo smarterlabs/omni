@@ -13,10 +13,10 @@ Think of Omni-Directional Documents as "smart markdown files" that are capable o
 # Current Packages
 
 - [Omni Core](https://github.com/smarterlabs/omni/tree/master/packages/omni): A JS module that acts as the core of the Omni compiler
-- [PHP Language Plugin](https://github.com/smarterlabs/omni/tree/master/packages/omni-php): Enables PHP usage in .omni files
-- [JavaScript Language Plugin](https://github.com/smarterlabs/omni/tree/master/packages/omni-javascript): Enables JS usage in .omni files
-- [Yaml Language Plugin](https://github.com/smarterlabs/omni/tree/master/packages/omni-yaml): Enables Yaml config in .omni files
-- [Interpolation Plugin](https://github.com/smarterlabs/omni/tree/master/packages/omni-interpolation): Enables string interpolation in .omni code blocks
+- [PHP Language Plugin](https://github.com/smarterlabs/omni/tree/master/packages/omni-plugin-php): Enables PHP usage in .omni files
+- [JavaScript Language Plugin](https://github.com/smarterlabs/omni/tree/master/packages/omni-plugin-javascript): Enables JS usage in .omni files
+- [Yaml Language Plugin](https://github.com/smarterlabs/omni/tree/master/packages/omni-plugin-yaml): Enables Yaml config in .omni files
+- [Interpolation Plugin](https://github.com/smarterlabs/omni/tree/master/packages/omni-plugin-interpolation): Enables string interpolation in .omni code blocks
 - [VS Code Omni Extension](https://marketplace.visualstudio.com/items?itemName=smarterlabs.vscode-omni): VS Code extension that enables code highlighting for .omni and .odd files
 
 ## Directives

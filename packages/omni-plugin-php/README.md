@@ -5,20 +5,20 @@ A plugin that allows you to run PHP in [Omni-Directional Documents](https://gith
 ## Installation
 
 ```
-npm install @smarterlabs/omni-php --save-dev
+npm install @smarterlabs/omni-plugin-php --save-dev
 ```
 
 or
 
 ```
-yarn add @smarterlabs/omni-php
+yarn add @smarterlabs/omni-pugin-php
 ```
 
 ## Usage
 
 ```js
 import Omni  from '@smarterlabs/omni'
-import omniPHP from '@smarterlabs/omni-php'
+import omniPHP from '@smarterlabs/omni-plugin-php'
 
 const omni = new Omni({
 	input: `src`,
