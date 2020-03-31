@@ -1,11 +1,14 @@
 {
-  "name": "@smarterlabs/omni",
+  "name": "@smarterlabs/omni-plugin-directive-aliases",
   "author": "https://smarterlabs.com",
-  "version": "0.1.12",
+  "version": "0.0.0",
   "main": "dist/index.js",
   "license": "MIT",
   "keywords": [
     "omni",
+    "plugin",
+    "directive",
+    "aliases",
     "odd",
     "markdown",
     "md",
@@ -16,10 +19,7 @@
   "scripts": {
     "build": "yarn run clean && babel src --out-dir dist",
     "clean": "del dist",
-    "dev": "babel src --out-dir dist --watch"
-  },
-  "bin": {
-    "omni": "./bin/omni.sh"
+    "dev": "babel src --watch --out-dir dist"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -30,14 +30,6 @@
     "del-cli": "^3.0.0"
   },
   "dependencies": {
-    "@babel/runtime": "^7.8.4",
-    "@smarterlabs/omni-core": "^0.0.1",
-    "@smarterlabs/omni-plugin-cli": "^0.0.1",
-    "@smarterlabs/omni-plugin-watch": "^0.0.1",
-    "@smarterlabs/omni-plugin-directive-aliases": "*",
-    "deepmerge": "^4.2.2",
-    "fs-extra": "^9.0.0",
-    "globby": "^11.0.0",
-    "replace-ext": "^1.0.0"
+    "@babel/runtime": "^7.8.4"
   }
 }

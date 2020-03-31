@@ -4,7 +4,7 @@ import extractCodePlugin from './extract-code'
 import exportFilesPlugin from './export-files'
 import readFilesPlugin from './read-files'
 import runJSONPlugin from './run-json'
-import directiveAliasesPlugin from './directive-aliases'
+import directiveAliasesPlugin from '@smarterlabs/omni-plugin-directive-aliases'
 import exportMapPlugin from './export-map'
 import watchPlugin from '@smarterlabs/omni-plugin-watch'
 
