@@ -1,7 +1,7 @@
 {
   "name": "@smarterlabs/omni",
   "author": "https://smarterlabs.com",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "main": "dist/index.js",
   "license": "MIT",
   "keywords": [
@@ -31,9 +31,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4",
-    "@smarterlabs/omni-core": "*",
-    "@smarterlabs/omni-plugin-cli": "*",
-    "@smarterlabs/omni-plugin-watch": "*",
+    "@smarterlabs/omni-core": "^0.0.1",
+    "@smarterlabs/omni-plugin-cli": "^0.0.1",
+    "@smarterlabs/omni-plugin-watch": "^0.0.1",
     "deepmerge": "^4.2.2",
     "fs-extra": "^9.0.0",
     "globby": "^11.0.0",
