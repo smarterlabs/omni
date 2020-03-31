@@ -1,7 +1,7 @@
-const Omni = require(`@smarterlabs/omni`).default
-const omniInterpolation = require(`@smarterlabs/omni-interpolation`).default
-const omniJS = require(`@smarterlabs/omni-javascript`).default
-const omniYAML = require(`@smarterlabs/omni-yaml`).default
+const Omni = require(`@smarterlabs/omni`)
+const omniInterpolation = require(`@smarterlabs/omni-interpolation`)
+const omniJS = require(`@smarterlabs/omni-javascript`)
+const omniYAML = require(`@smarterlabs/omni-yaml`)
 
 new Omni({
 	input: `example`,
