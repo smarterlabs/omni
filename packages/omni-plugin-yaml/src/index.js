@@ -3,7 +3,7 @@ import deepmerge from 'deepmerge'
 
 export default function yamlPlugin() {
 	return async omni => {
-		omni.on(`parseConfig`, async (block, data) => {
+		omni.on(`parseBlock`, async (block, data) => {
 			if (block.type != `yaml` || !block.directives.config) return
 			let obj = yaml.parse(block.code)
 			for (let i in obj) {
