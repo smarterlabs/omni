@@ -20,7 +20,7 @@ export default class OmniCore{
 			input: `./`,
 			output: `./dist`,
 			plugins: [],
-			fileTypes: [`md`, `omni`, `odd`, `od`],
+			fileTypes: [`md`, `omni`, `odd`],
 			cli: true,
 
 			...config,
@@ -98,15 +98,6 @@ export default class OmniCore{
 
 		// Do stuff with code blocks
 		if(data.blocks){
-			for(let block of data.blocks){
-				if(block.directives.config){
-					let obj = await trigger(`parseConfig`, block, data)
-					if (obj){
-						block.code = JSON.stringify(obj)
-						block.type = `json`
-					}
-				}
-			}
 			for(let block of data.blocks){
 				await trigger(`parseBlock`, block, data)
 			}
