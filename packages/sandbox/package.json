@@ -8,6 +8,7 @@
   "scripts": {
     "build": "yarn run clean && omni build",
     "dev": "yarn run clean && omni watch",
+    "test": "omni --version",
     "clean": "del dist"
   },
   "devDependencies": {

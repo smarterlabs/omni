@@ -7,9 +7,11 @@ import JSONPlugin from '@smarterlabs/omni-plugin-json'
 import directiveAliasesPlugin from '@smarterlabs/omni-plugin-directive-aliases'
 import exportMapPlugin from './export-map'
 import watchPlugin from '@smarterlabs/omni-plugin-watch'
+import { version } from '../package.json'
 
 export default class Omni{
 	constructor(config){
+		if(!config.version) config.version = version
 		if(!config.plugins) config.plugins = []
 
 		// Prepend plugins

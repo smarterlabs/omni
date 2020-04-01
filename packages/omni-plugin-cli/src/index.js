@@ -1,11 +1,10 @@
 import { program as p } from 'commander'
-import { version } from '../../../package.json'
 
 export default function cliPlugin() {
 	return omni => {
 		omni.addEventListener(`init`, () => {
 			if (omni.config.cli === true && typeof process !== undefined && process.argv) {
-				p.version(version)
+				p.version(`v${omni.config.version}`)
 
 				p.command(`build`)
 					.description(`Build an Omni project`)
