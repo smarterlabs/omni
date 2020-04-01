@@ -1,15 +1,25 @@
-// TODO: Add subcommander for cli args
+import { program as p } from 'commander'
+import { version } from '../../../package.json'
+
 export default function cliPlugin() {
 	return omni => {
 		omni.addEventListener(`init`, () => {
 			if (omni.config.cli === true && typeof process !== undefined && process.argv) {
-				let [, , cmd] = process.argv
-				if (cmd === `build`) {
-					omni.processDirectory()
-				}
-				else if (cmd === `watch`) {
-					omni.watch()
-				}
+				p.version(version)
+
+				p.command(`build`)
+					.description(`Build an Omni project`)
+					.action(() => {
+						omni.processDirectory()
+					})
+
+				p.command(`watch`)
+					.description(`Watches Omni project files and rebuilds if something changes`)
+					.action(() => {
+						omni.watch()
+					})
+
+				p.parse(process.argv)
 			}
 		})
 	}

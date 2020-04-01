@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4",
-    "subcommander": "^1.0.0"
+    "commander": "^5.0.0"
   }
 }
