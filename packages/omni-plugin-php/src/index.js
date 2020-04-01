@@ -64,7 +64,7 @@ export default function phpPlugin(options) {
 				let res
 				try {
 					res = await execShellCommand(`php "${outputPath}"`)
-					console.log(`res`, res)
+					// console.log(`res`, res)
 				}
 				catch(err){
 					console.error(err)
