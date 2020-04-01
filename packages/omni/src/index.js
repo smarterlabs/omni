@@ -3,7 +3,7 @@ import cliPlugin from '@smarterlabs/omni-plugin-cli'
 import extractCodePlugin from './extract-code'
 import exportFilesPlugin from './export-files'
 import readFilesPlugin from './read-files'
-import runJSONPlugin from './run-json'
+import JSONPlugin from '@smarterlabs/omni-plugin-json'
 import directiveAliasesPlugin from '@smarterlabs/omni-plugin-directive-aliases'
 import exportMapPlugin from './export-map'
 import watchPlugin from '@smarterlabs/omni-plugin-watch'
@@ -15,7 +15,7 @@ export default class Omni{
 		// Prepend plugins
 		config.plugins.unshift(...[
 			readFilesPlugin(),
-			runJSONPlugin(),
+			JSONPlugin(),
 			extractCodePlugin(),
 			exportMapPlugin(),
 			watchPlugin(),

@@ -1,13 +1,14 @@
 {
-  "name": "@smarterlabs/omni-plugin-cli",
+  "name": "@smarterlabs/omni-plugin-json",
   "author": "https://smarterlabs.com",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "main": "dist/index.js",
   "license": "MIT",
   "keywords": [
     "omni",
     "plugin",
-    "cli",
+    "json",
+    "language",
     "odd",
     "markdown",
     "md",
@@ -30,6 +31,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4",
-    "subcommander": "^1.0.0"
+    "deepmerge": "^4.2.2",
+    "yaml": "^1.8.3"
   }
 }

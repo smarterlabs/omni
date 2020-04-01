@@ -1,3 +1,4 @@
+// TODO: Add subcommander for cli args
 export default function cliPlugin() {
 	return omni => {
 		omni.addEventListener(`init`, () => {

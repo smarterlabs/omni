@@ -1,11 +1,14 @@
 import yaml from 'yaml'
+import deepmerge from 'deepmerge'
 
 export default function yamlPlugin() {
 	return async omni => {
-
-		// Convert yaml config to json
-		omni.on(`parseConfig`, async block => {
-			if (block.type !== `yaml`) return
+		omni.on(`parseConfig`, async (block, data) => {
+			if (block.type != `yaml` || !block.directives.config) return
+			let obj = yaml.parse(block.code)
+			for (let i in obj) {
+				data[i] = deepmerge(data[i], obj[i])
+			}
 			return yaml.parse(block.code)
 		})
 
