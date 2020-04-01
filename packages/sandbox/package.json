@@ -1,7 +1,7 @@
 {
   "name": "omni-sandbox",
   "author": "https://smarterlabs.com",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "main": "index.js",
   "license": "MIT",
   "private": true,
@@ -19,9 +19,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4",
-    "@smarterlabs/omni": "^0.1.13",
+    "@smarterlabs/omni": "^0.1.14",
     "@smarterlabs/omni-plugin-interpolation": "^0.1.11",
     "@smarterlabs/omni-plugin-javascript": "^0.1.11",
-    "@smarterlabs/omni-plugin-yaml": "^0.1.10"
+    "@smarterlabs/omni-plugin-yaml": "^0.1.11"
   }
 }
