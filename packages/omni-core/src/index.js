@@ -19,6 +19,7 @@ export default class OmniCore{
 			// Default settings
 			input: `./`,
 			output: `./dist`,
+			ignore: [`**/_*.omni`],
 			plugins: [],
 			fileTypes: [`md`, `omni`, `odd`],
 			cli: true,
@@ -110,13 +111,15 @@ export default class OmniCore{
 	async processDirectory(subdir){
 		let {
 			input,
+			ignore,
 			fileTypes,
 		} = this.config
 		if (subdir){
 			input = join(input, subdir)
 		}
+		const ignoreGlobs = ignore.map(str => `!${str}`)
 		const inputGlob = join(input, `**/*.{${fileTypes.join(`,`)}}`)
-		const files = await glob(inputGlob)
+		const files = await glob([inputGlob, ...ignoreGlobs])
 		for(let file of files){
 			const path = file.replace(input, ``)
 			await this.processFile(path)
