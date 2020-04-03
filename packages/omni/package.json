@@ -1,7 +1,7 @@
 {
   "name": "@smarterlabs/omni",
   "author": "https://smarterlabs.com",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "main": "dist/index.js",
   "license": "MIT",
   "keywords": [
@@ -25,17 +25,17 @@
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
     "@babel/node": "^7.8.4",
-    "@smarterlabs/babel-preset-omni": "*",
-    "@smarterlabs/eslint-config-omni": "*",
+    "@smarterlabs/babel-preset-omni": "^0.0.1",
+    "@smarterlabs/eslint-config-omni": "^0.0.1",
     "del-cli": "^3.0.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4",
-    "@smarterlabs/omni-core": "^0.0.3",
-    "@smarterlabs/omni-plugin-cli": "^0.0.4",
-    "@smarterlabs/omni-plugin-directive-aliases": "^0.0.1",
-    "@smarterlabs/omni-plugin-json": "^0.0.1",
-    "@smarterlabs/omni-plugin-watch": "^0.0.2",
+    "@smarterlabs/omni-core": "^0.0.4",
+    "@smarterlabs/omni-plugin-cli": "^0.0.5",
+    "@smarterlabs/omni-plugin-directive-aliases": "^0.0.2",
+    "@smarterlabs/omni-plugin-json": "^0.0.2",
+    "@smarterlabs/omni-plugin-watch": "^0.0.3",
     "clone-deep": "^4.0.1",
     "deepmerge": "^4.2.2",
     "fs-extra": "^9.0.0",

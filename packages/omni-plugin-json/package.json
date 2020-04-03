@@ -1,7 +1,7 @@
 {
   "name": "@smarterlabs/omni-plugin-json",
   "author": "https://smarterlabs.com",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/index.js",
   "license": "MIT",
   "keywords": [
@@ -25,8 +25,8 @@
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
     "@babel/node": "^7.8.4",
-    "@smarterlabs/babel-preset-omni": "*",
-    "@smarterlabs/eslint-config-omni": "*",
+    "@smarterlabs/babel-preset-omni": "^0.0.1",
+    "@smarterlabs/eslint-config-omni": "^0.0.1",
     "del-cli": "^3.0.0"
   },
   "dependencies": {
