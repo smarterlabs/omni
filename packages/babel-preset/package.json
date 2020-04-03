@@ -2,6 +2,7 @@
 	"name": "@smarterlabs/babel-preset-omni",
 	"description": "A Babel preset for Omni",
 	"version": "0.0.0",
+	"private": true,
 	"main": "index.js",
 	"author": "https://smarterlabs.com",
 	"license": "MIT",
