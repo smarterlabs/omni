@@ -12,7 +12,16 @@ export default function watchPlugin() {
 	return omni => {
 		omni.addEventListener(`watch`, () => {
 			unwatch()
-			chokidar = Chokidar.watch(`.`, { cwd: omni.config.input })
+			// const input = [
+			// 	`.`,
+			// 	`!*.omni`,
+			// 	// ...omni.config.ignore.map(path => `!${path}`),
+			// ]
+			// console.log(`INPUT`, input)
+			chokidar = Chokidar.watch(`.`, {
+				cwd: omni.config.input,
+				ignored: omni.config.ignore,
+			})
 			chokidar.on(`all`, (event, path) => {
 				if (event == `add` || event == `change`) {
 					omni.processFile(path)
