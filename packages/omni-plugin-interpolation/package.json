@@ -24,7 +24,7 @@
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
     "@babel/node": "^7.8.4",
-    "@smarterlabs/babel-preset": "^1.0.8",
+    "@smarterlabs/babel-preset-omni": "*",
     "@smarterlabs/eslint-config-omni": "*",
     "del-cli": "^3.0.0"
   },

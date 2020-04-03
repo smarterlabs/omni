@@ -40,7 +40,6 @@ module.exports = declare((api, options) => {
 				targets,
 				modules: modules === false ? false : `auto`,
 			}],
-			[require(`@babel/preset-react`), { development }],
 		],
 		plugins: [
 			require(`@babel/plugin-transform-runtime`),
@@ -72,6 +71,7 @@ module.exports = declare((api, options) => {
 			require(`@babel/plugin-proposal-json-strings`),
 			require(`babel-plugin-dynamic-import-node`),
 			require(`@babel/plugin-proposal-object-rest-spread`),
+			require(`babel-plugin-add-module-exports`),
 		],
 	}
 })

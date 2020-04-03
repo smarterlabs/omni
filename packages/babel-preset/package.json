@@ -1,5 +1,5 @@
 {
-	"name": "@smarterlabs/babel-preset",
+	"name": "@smarterlabs/babel-preset-omni",
 	"description": "A Babel preset for Omni",
 	"version": "0.0.0",
 	"main": "index.js",
@@ -31,6 +31,7 @@
 		"@babel/plugin-syntax-import-meta": "^7.0.0",
 		"@babel/plugin-transform-runtime": "^7.6.0",
 		"@babel/preset-env": "^7.6.0",
+		"babel-plugin-add-module-exports": "^1.0.2",
 		"babel-plugin-dynamic-import-node": "^2.2.0"
 	}
 }

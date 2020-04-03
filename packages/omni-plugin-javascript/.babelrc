@@ -1,6 +1,6 @@
 {
 	"presets": [
-		["@smarterlabs/babel-preset", {
+		["@smarterlabs/babel-preset-omni", {
 			"modules": "auto",
 			"targets": "> 0.25%, not dead"
 		}]
