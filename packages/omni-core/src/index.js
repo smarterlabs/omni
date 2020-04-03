@@ -49,9 +49,15 @@ export default class OmniCore{
 			els[label] = []
 		}
 	}
-	addEventListener(label, fn){
-		this.addEventType(label)
-		this.eventListeners[label].push(fn)
+	addEventListener(labels, fns){
+		if(!Array.isArray(labels)) labels = [labels]
+		if(!Array.isArray(fns)) fns = [fns]
+		for (let label of labels) {
+			this.addEventType(label)
+			for (let fn of fns) {
+				this.eventListeners[label].push(fn)
+			}
+		}
 	}
 	removeEventListener(label, fn) {
 		this.addEventType(label)
@@ -79,6 +85,7 @@ export default class OmniCore{
 	}
 	async processFile(path){
 		const trigger = this.triggerEvents
+		await trigger(`preProcessFile`)
 		let newData
 
 		// Data that gets passed through events for this file
@@ -106,9 +113,11 @@ export default class OmniCore{
 
 		// Write files with plugins
 		await trigger(`exportFile`, data)
+		await trigger(`postProcessFile`)
 
 	}
-	async processDirectory(subdir){
+	async processDirectory(subdir) {
+		await this.triggerEvents(`preProcessDirectory`)
 		let {
 			input,
 			ignore,
@@ -120,9 +129,13 @@ export default class OmniCore{
 		const ignoreGlobs = ignore.map(str => `!${str}`)
 		const inputGlob = join(input, `**/*.{${fileTypes.join(`,`)}}`)
 		const files = await glob([inputGlob, ...ignoreGlobs])
+
+
 		for(let file of files){
 			const path = file.replace(input, ``)
 			await this.processFile(path)
 		}
+
+		await this.triggerEvents(`postProcessDirectory`)
 	}
 }

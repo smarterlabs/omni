@@ -1,0 +1,20 @@
+{
+	"name": "@smarterlabs/eslint-config-omni",
+	"description": "An ESLint config for Omni",
+	"version": "0.0.0",
+	"main": "index.js",
+	"author": "https://smarterlabs.com",
+	"license": "MIT",
+	"keywords": [
+		"omni",
+		"eslint",
+		"config"
+	],
+	"peerDependencies": {
+		"eslint": ">= 3"
+	},
+	"dependencies": {
+		"babel-eslint": "^10.1.0",
+		"eslint-plugin-jest": "^23.8.2"
+	}
+}
